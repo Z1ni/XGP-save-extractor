@@ -10,4 +10,4 @@ Python script to extract/backup savefiles out of Xbox Game Pass for PC games.
 Run `main.py` with Python 3+. The script produces ZIP files for each of the supported games that are installed for the current user.
 
 ## Thanks
-Thanks to @snoozbuster for figuring out the container format at goatfungus/NMSSaveEditor#306.
+Thanks to [@snoozbuster](https://github.com/snoozbuster) for figuring out the container format at https://github.com/goatfungus/NMSSaveEditor/issues/306.
