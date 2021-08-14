@@ -15,7 +15,8 @@ from datetime import datetime
 supported_xgp_apps = {
     "Yakuza 0": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
     "Octopath Traveller": "39EA002F.FrigateMS_n746a19ndrrjg",
-    "Just Cause 4": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j"
+    "Just Cause 4": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
+    "Hades": "SupergiantGamesLLC.Hades_q53c1yqmx7pha"
 }
 
 
@@ -128,10 +129,10 @@ def get_save_paths(store_pkg_name, containers):
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
 
-    elif store_pkg_name in [supported_xgp_apps["Octopath Traveller"], supported_xgp_apps["Just Cause 4"]]:
-        # Handle Octopath Traveller and Just Cause 4 saves
-        # Both games use containers in a "1 container, n files" manner (1cnf), where there exists only one container
-        # that contains all the savefiles.
+    elif store_pkg_name in [supported_xgp_apps["Octopath Traveller"], supported_xgp_apps["Just Cause 4"], supported_xgp_apps["Hades"]]:
+        # Handle Octopath Traveller, Just Cause 4 and Hades saves
+        # All of these games use containers in a "1 container, n files" manner (1cnf), where there exists only one
+        # container that contains all the savefiles.
         # The save files seem to be the same as in the Steam version.
         container = containers[0]
         for c_file in container["files"]:
