@@ -1,9 +1,11 @@
 import os
 import struct
 import sys
+import tempfile
 import uuid
 import zipfile
 from datetime import datetime
+from pathlib import Path, PurePath
 
 # Xbox Game Pass for PC savefile extractor
 
@@ -16,7 +18,8 @@ supported_xgp_apps = {
     "Yakuza 0": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
     "Octopath Traveller": "39EA002F.FrigateMS_n746a19ndrrjg",
     "Just Cause 4": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
-    "Hades": "SupergiantGamesLLC.Hades_q53c1yqmx7pha"
+    "Hades": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
+    "Control": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc"
 }
 
 
@@ -117,7 +120,7 @@ def read_containers(pkg_name):
     return (store_pkg_name, containers)
 
 
-def get_save_paths(store_pkg_name, containers):
+def get_save_paths(store_pkg_name, containers, temp_dir):
     save_meta = []
 
     if store_pkg_name == supported_xgp_apps["Yakuza 0"]:
@@ -138,6 +141,25 @@ def get_save_paths(store_pkg_name, containers):
         for c_file in container["files"]:
             save_meta.append((c_file["name"], c_file["path"]))
 
+    elif store_pkg_name == supported_xgp_apps["Control"]:
+        # Handle Control saves
+        # Control uses container in a "n containers, n files" manner (ncnf),
+        # where the container represents a folder that has named files.
+        # Epic Games Store (and Steam?) use the same file names, but with a ".chunk" file extension.
+        # TODO: Are files named "meta" unnecessary?
+        for container in containers:
+            path = PurePath(container["name"])
+
+            # Create "--containerDisplayName.chunk" that contains the container name
+            # TODO: Does Control _need_ "--containerDisplayName.chunk"?
+            temp_container_disp_name_path = Path(temp_dir.name) / f"{container['name']}_--containerDisplayName.chunk"
+            with temp_container_disp_name_path.open("w") as f:
+                f.write(container["name"])
+            save_meta.append((path / "--containerDisplayName.chunk", temp_container_disp_name_path))
+
+            for file in container["files"]:
+                save_meta.append((path / f"{file['name']}.chunk", file['path']))
+
     else:
         raise Exception("Unsupported XGP app \"%s\"" % store_pkg_name)
 
@@ -147,6 +169,10 @@ def get_save_paths(store_pkg_name, containers):
 def main():
     print("Xbox Game Pass for PC savefile extractor")
     print("========================================")
+
+    # Create tempfile directory
+    # Control save files need this, as we need to create files that do not exist in the XGP save data
+    temp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
 
     # Discover supported games
     found_games = discover_games()
@@ -162,10 +188,10 @@ def main():
         store_pkg_name, containers = read_containers(supported_xgp_apps[name])
 
         # Get save file paths
-        save_paths = get_save_paths(store_pkg_name, containers)
+        save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
         print("  Save files:")
-        for file_name, file_path in save_paths:
-            print("  - %s" % file_name)
+        for file_name, _ in save_paths:
+            print(f"  - {file_name}")
 
         # Create a ZIP file
         formatted_game_name = name.replace(" ", "_").replace(":", "_").replace("'", "").lower()
@@ -178,6 +204,8 @@ def main():
         print()
         print("  Save files written to \"%s\"" % zip_name)
         print()
+
+    temp_dir.cleanup()
 
 
 if __name__ == "__main__":
