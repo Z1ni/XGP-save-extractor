@@ -16,10 +16,12 @@ from pathlib import Path, PurePath
 # List of supported Game Pass games and their UWP package names
 supported_xgp_apps = {
     "Yakuza 0": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
+    "Yakuza Like a Dragon": "SEGAofAmericaInc.Yazawa_s751p9cej88mt",
     "Octopath Traveller": "39EA002F.FrigateMS_n746a19ndrrjg",
     "Just Cause 4": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
     "Hades": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
-    "Control": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc"
+    "Control": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
+    "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg"
 }
 
 
@@ -123,8 +125,8 @@ def read_containers(pkg_name):
 def get_save_paths(store_pkg_name, containers, temp_dir):
     save_meta = []
 
-    if store_pkg_name == supported_xgp_apps["Yakuza 0"]:
-        # Handle Yakuza 0 saves
+    if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"], supported_xgp_apps["Final Fantasy XV"]]:
+        # Handle Yakuza 0, Yakuza Like a Dragon and Final Fantasy XV saves
         # Yakuza 0 uses containers in a "1 container, 1 file" manner (1c1f),
         # where the container includes a file named "data" that is the file named as the container.
         for container in containers:
