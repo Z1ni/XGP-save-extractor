@@ -126,7 +126,7 @@ def read_containers(pkg_name):
 def get_save_paths(store_pkg_name, containers, temp_dir):
     save_meta = []
 
-    if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"], supported_xgp_apps["Final Fantasy XV"], supported_xgp_apps["Atomic Heart"]]:
+    if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"], supported_xgp_apps["Final Fantasy XV"]]:
         # Handle Yakuza 0, Yakuza Like a Dragon and Final Fantasy XV saves
         # Yakuza 0 uses containers in a "1 container, 1 file" manner (1c1f),
         # where the container includes a file named "data" that is the file named as the container.
@@ -162,6 +162,15 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
             for file in container["files"]:
                 save_meta.append((path / f"{file['name']}.chunk", file['path']))
+                
+    elif store_pkg_name in [supported_xgp_apps["Atomic Heart"]]:
+        # Handle Atomic Heart saves
+        # Atomic Heart uses containers in a "1 container, 1 file" manner (1c1f),
+        # where the container includes a file named "data" that is the file named as the container. All files need to have ".sav" added as an extension
+        for container in containers:
+            fname = container["name"] + '.sav'
+            fpath = container["files"][0]["path"]
+            save_meta.append((fname, fpath))
 
     else:
         raise Exception("Unsupported XGP app \"%s\"" % store_pkg_name)
