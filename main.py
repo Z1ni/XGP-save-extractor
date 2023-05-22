@@ -21,6 +21,7 @@ supported_xgp_apps = {
     "Just Cause 4": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
     "Hades": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
     "Control": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
+    "Atomic Heart": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
     "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg"
 }
 
@@ -161,6 +162,15 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
             for file in container["files"]:
                 save_meta.append((path / f"{file['name']}.chunk", file['path']))
+                
+    elif store_pkg_name in [supported_xgp_apps["Atomic Heart"]]:
+        # Handle Atomic Heart saves
+        # Atomic Heart uses containers in a "1 container, 1 file" manner (1c1f),
+        # where the container includes a file named "data" that is the file named as the container. All files need to have ".sav" added as an extension
+        for container in containers:
+            fname = container["name"] + '.sav'
+            fpath = container["files"][0]["path"]
+            save_meta.append((fname, fpath))
 
     else:
         raise Exception("Unsupported XGP app \"%s\"" % store_pkg_name)
