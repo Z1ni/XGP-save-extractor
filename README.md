@@ -10,9 +10,10 @@ Python script to extract/backup savefiles out of Xbox Game Pass for PC games.
 - **Control** *(confirmed working with the Epic version, save format should be the same with Steam)*
 - **Final Fantasy XV** *(confirmed working with the Steam version)*
 - **Atomic Heart** *(confirmed working with the Steam version, at least when all fiels where copied before ever launching Steam version)*
+- **Chorus** *(confirmed working with the Steam version)*
 
 ## Running
-Run `main.py` with Python 3+. The script produces ZIP files for each of the supported games that are installed for the current user.
+Run `main.py` with Python 3.10+. The script produces ZIP files for each of the supported games that are installed for the current user.
 
 ## Thanks
 Thanks to [@snoozbuster](https://github.com/snoozbuster) for figuring out the container format at https://github.com/goatfungus/NMSSaveEditor/issues/306.
