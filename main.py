@@ -208,7 +208,6 @@ def main():
         print("- %s" % name)
 
         store_pkg_name, containers = read_containers(supported_xgp_apps[name])
-        print(store_pkg_name)
 
         # Get save file paths
         save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
