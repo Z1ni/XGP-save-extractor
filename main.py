@@ -22,6 +22,7 @@ supported_xgp_apps = {
     "Hades": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
     "Control": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
     "Atomic Heart": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
+    "Chorus": "DeepSilver.UnleashedGoF_hmv7qcest37me",
     "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg"
 }
 
@@ -65,7 +66,7 @@ def read_containers(pkg_name):
         # Unknown
         f.read(4)
 
-        store_pkg_name = read_utf16_str(f).split("!Game")[0].split("!Retail")[0]
+        store_pkg_name = read_utf16_str(f).split("!Game")[0].split("!Retail")[0].split("!AppChorusShipping")[0]
 
         # Unknown
         f.read(12)
@@ -143,6 +144,15 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
         container = containers[0]
         for c_file in container["files"]:
             save_meta.append((c_file["name"], c_file["path"]))
+
+    elif store_pkg_name in [supported_xgp_apps["Chorus"]]:
+        # Handle Chorus saves
+        # All of these games use containers in a "1 container, n files" manner (1cnf), where there exists only one
+        # container that contains all the savefiles.
+        # The save files seem to be the same as in the Steam version.
+        container = containers[0]
+        for c_file in container["files"]:
+            save_meta.append((c_file["name"] + '.sav', c_file["path"]))
 
     elif store_pkg_name == supported_xgp_apps["Control"]:
         # Handle Control saves
