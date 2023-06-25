@@ -66,7 +66,7 @@ def read_containers(pkg_name):
         # Unknown
         f.read(4)
 
-        store_pkg_name = read_utf16_str(f).split("!Game")[0].split("!Retail")[0].split("!AppChorusShipping")[0]
+        store_pkg_name = read_utf16_str(f).split("!Game")[0].split("!Retail")[0].split("!AppChorusShipping")[0].split("!App")[0]
 
         # Unknown
         f.read(12)
