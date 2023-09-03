@@ -23,7 +23,8 @@ supported_xgp_apps = {
     "Control": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
     "Atomic Heart": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
     "Chorus": "DeepSilver.UnleashedGoF_hmv7qcest37me",
-    "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg"
+    "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
+    "Starfield": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc"
 }
 
 
@@ -181,6 +182,43 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
             fname = container["name"] + '.sav'
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
+
+    elif store_pkg_name in [supported_xgp_apps["Starfield"]]:
+        # Starfield
+        # The Steam version uses SFS ("Starfield save"?) files, whereas the Store version splits the SFS files into multiple files inside the containers.
+        # One container is one save.
+        # It seems that the "BETHESDAPFH" file is a header which is padded to the next 16 byte boundary with the string "padding\0", where \0 is NUL.
+        # The other files ("PnP", where n is a number starting from 0) are then concatenated into the SFS file, also with padding.
+
+        temp_folder = Path(temp_dir.name) / "Starfield"
+        temp_folder.mkdir()
+
+        pad_str = "padding\0" * 2
+
+        for container in containers:
+            path = PurePath(container["name"])
+            # Strip out the "Saves/" prefix
+            sfs_name = path.name
+            # Arrange the files: header as index 0, P0P as 1, P1P as 2, etc.
+            parts = {}
+            for file in container["files"]:
+                if file["name"] == "BETHESDAPFH":
+                    parts[0] = file["path"]
+                else:
+                    idx = int(file["name"].strip("P")) + 1
+                    parts[idx] = file["path"]
+            # Construct the SFS file
+            sfs_path = temp_folder / sfs_name
+            with sfs_path.open("wb") as sfs_f:
+                for idx, part_path in sorted(parts.items(), key=lambda t: t[0]):
+                    with open(part_path, "rb") as part_f:
+                        data = part_f.read()
+                    size = sfs_f.write(data)
+                    pad = 16 - (size % 16)
+                    if pad != 16:
+                        sfs_f.write(pad_str[:pad].encode("ascii"))
+
+            save_meta.append((sfs_name, sfs_path))
 
     else:
         raise Exception("Unsupported XGP app \"%s\"" % store_pkg_name)
