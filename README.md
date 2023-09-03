@@ -2,6 +2,7 @@
 Python script to extract/backup savefiles out of Xbox Game Pass for PC games.
 
 ## Supported games
+- **Starfield** *(confirmed working with the Steam version)*
 - **Yakuza 0** *(confirmed working with the Steam version)*
 - **Yakuza Like a Dragon** *(not tested with the Steam version, but the save format should be the same)*
 - **Octopath Traveller** *(not tested with the Steam version, but the save format should be the same)*
