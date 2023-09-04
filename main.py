@@ -197,7 +197,10 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
         for container in containers:
             path = PurePath(container["name"])
-            # Strip out the "Saves/" prefix
+            # There can be other files than saves, e.g. files under "Settings/" path. Skip those.
+            if path.parent.name != "Saves":
+                continue
+            # Strip out the parent folder name
             sfs_name = path.name
             # Arrange the files: header as index 0, P0P as 1, P1P as 2, etc.
             parts = {}
