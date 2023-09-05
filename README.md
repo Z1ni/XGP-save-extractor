@@ -14,6 +14,10 @@ Python script to extract/backup savefiles out of Xbox Game Pass for PC games.
 - **Chorus** *(confirmed working with the Steam version)*
 
 ## Running
+Download the latest release for an one-file executable: https://github.com/Z1ni/XGP-save-extractor/releases
+
+*Or*
+
 Run `main.py` with Python 3.10+. The script produces ZIP files for each of the supported games that are installed for the current user.
 
 ## Thanks
