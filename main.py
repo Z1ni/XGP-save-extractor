@@ -2,6 +2,7 @@ import os
 import struct
 import sys
 import tempfile
+import traceback
 import uuid
 import zipfile
 from datetime import datetime
@@ -248,25 +249,30 @@ def main():
     for name in found_games:
         print("- %s" % name)
 
-        store_pkg_name, containers = read_containers(supported_xgp_apps[name])
+        try:
+            store_pkg_name, containers = read_containers(supported_xgp_apps[name])
 
-        # Get save file paths
-        save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
-        print("  Save files:")
-        for file_name, _ in save_paths:
-            print(f"  - {file_name}")
+            # Get save file paths
+            save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
+            print("  Save files:")
+            for file_name, _ in save_paths:
+                print(f"  - {file_name}")
 
-        # Create a ZIP file
-        formatted_game_name = name.replace(" ", "_").replace(":", "_").replace("'", "").lower()
-        timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
-        zip_name = "%s_%s.zip" % (formatted_game_name, timestamp)
-        with zipfile.ZipFile(zip_name, "x") as save_zip:
-            for file_name, file_path in save_paths:
-                save_zip.write(file_path, arcname=file_name)
+            # Create a ZIP file
+            formatted_game_name = name.replace(" ", "_").replace(":", "_").replace("'", "").lower()
+            timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
+            zip_name = "%s_%s.zip" % (formatted_game_name, timestamp)
+            with zipfile.ZipFile(zip_name, "x") as save_zip:
+                for file_name, file_path in save_paths:
+                    save_zip.write(file_path, arcname=file_name)
 
-        print()
-        print("  Save files written to \"%s\"" % zip_name)
-        print()
+            print()
+            print("  Save files written to \"%s\"" % zip_name)
+            print()
+
+        except Exception:
+            print(f"  Failed to extract saves:")
+            traceback.print_exc()
 
     temp_dir.cleanup()
 
