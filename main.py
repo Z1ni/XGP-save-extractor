@@ -5,7 +5,7 @@ import tempfile
 import traceback
 import uuid
 import zipfile
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from pathlib import Path, PurePath
 
 # Xbox Game Pass for PC savefile extractor
@@ -29,6 +29,8 @@ supported_xgp_apps = {
     "A Plague Tale: Requiem": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0"
 }
 
+filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
+
 
 def discover_games():
     found_games = []
@@ -43,6 +45,12 @@ def read_utf16_str(f, str_len=None):
     if not str_len:
         str_len = struct.unpack("<i", f.read(4))[0]
     return f.read(str_len * 2).decode("utf-16").rstrip("\0")
+
+
+def read_filetime(f) -> datetime:
+    filetime = struct.unpack("<Q", f.read(8))[0]
+    filetime_seconds = filetime / 10_000_000
+    return filetime_epoch + timedelta(seconds=filetime_seconds)
 
 
 def read_containers(pkg_name):
@@ -73,8 +81,11 @@ def read_containers(pkg_name):
 
         store_pkg_name = read_utf16_str(f).split("!Game")[0].split("!Retail")[0].split("!AppChorusShipping")[0].split("!App")[0]
 
+        # Creation date, FILETIME
+        creation_date = read_filetime(f)
+        print(f"  Container index created at {creation_date}")
         # Unknown
-        f.read(12)
+        f.read(4)
         read_utf16_str(f)
 
         # Unknown
@@ -93,8 +104,11 @@ def read_containers(pkg_name):
             f.read(4)
             # Read container (folder) GUID
             container_guid = uuid.UUID(bytes_le=f.read(16))
+            # Creation date, FILETIME
+            container_creation_date = read_filetime(f)
+            # print(f"Container created at {container_creation_date}")
             # Unknown
-            f.read(24)
+            f.read(16)
 
             files = []
 
