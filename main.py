@@ -47,6 +47,8 @@ def read_utf16_str(f, str_len=None):
 def read_containers(pkg_name):
     # Find container dir
     wgs_dir = os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}\\SystemAppData\\wgs")
+    if not os.path.isdir(wgs_dir):
+        return None
     # Get the correct user directory
     dirs = [d for d in os.listdir(wgs_dir) if d != "t"]
     dir_count = len(dirs)
@@ -250,7 +252,12 @@ def main():
         print("- %s" % name)
 
         try:
-            store_pkg_name, containers = read_containers(supported_xgp_apps[name])
+            read_result = read_containers(supported_xgp_apps[name])
+            if read_result is None:
+                print("  No containers for the game, maybe the game is not installed anymore")
+                print()
+                continue
+            store_pkg_name, containers = read_result
 
             # Get save file paths
             save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
@@ -268,11 +275,11 @@ def main():
 
             print()
             print("  Save files written to \"%s\"" % zip_name)
-            print()
 
         except Exception:
             print(f"  Failed to extract saves:")
             traceback.print_exc()
+            print()
 
     temp_dir.cleanup()
 
