@@ -25,7 +25,8 @@ supported_xgp_apps = {
     "Atomic Heart": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
     "Chorus": "DeepSilver.UnleashedGoF_hmv7qcest37me",
     "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
-    "Starfield": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc"
+    "Starfield": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc",
+    "A Plague Tale: Requiem": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0"
 }
 
 
@@ -131,9 +132,9 @@ def read_containers(pkg_name):
 def get_save_paths(store_pkg_name, containers, temp_dir):
     save_meta = []
 
-    if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"], supported_xgp_apps["Final Fantasy XV"]]:
-        # Handle Yakuza 0, Yakuza Like a Dragon and Final Fantasy XV saves
-        # Yakuza 0 uses containers in a "1 container, 1 file" manner (1c1f),
+    if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"], supported_xgp_apps["Final Fantasy XV"], supported_xgp_apps["A Plague Tale: Requiem"]]:
+        # Handle Yakuza 0, Yakuza Like a Dragon, Final Fantasy XV and A Plague Tale: Requiem saves
+        # These all use containers in a "1 container, 1 file" manner (1c1f),
         # where the container includes a file named "data" that is the file named as the container.
         for container in containers:
             fname = container["name"]
