@@ -111,9 +111,12 @@ def read_containers(pkg_name):
             f.read(16)
 
             files = []
-
             # Read the container file in the container directory
             container_path = os.path.join(containers_dir, container_guid.hex.upper())
+            # precheck this container directory have files or not
+            if len(os.listdir(container_path)) == 0:
+                continue
+            
             with open(os.path.join(container_path, f"container.{container_num}"), "rb") as cf:
                 # Unknown (always 04 00 00 00 ?)
                 cf.read(4)
@@ -232,6 +235,9 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
             sfs_path = temp_folder / sfs_name
             with sfs_path.open("wb") as sfs_f:
                 for idx, part_path in sorted(parts.items(), key=lambda t: t[0]):
+                    # precheck file is exists or not. skip if not exist.
+                    if not os.path.exists(part_path):
+                        continue
                     with open(part_path, "rb") as part_f:
                         data = part_f.read()
                     size = sfs_f.write(data)
