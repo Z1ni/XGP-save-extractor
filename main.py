@@ -1,3 +1,4 @@
+import json
 import os
 import struct
 import sys
@@ -7,6 +8,7 @@ import uuid
 import zipfile
 from datetime import datetime, timedelta, timezone
 from pathlib import Path, PurePath
+from typing import Any, Dict, List, Tuple
 
 # Xbox Game Pass for PC savefile extractor
 
@@ -62,18 +64,63 @@ def print_sync_warning(title: str):
     input()
 
 
-def read_containers(pkg_name):
+def get_xbox_user_name(user_id: int) -> str | None:
+    xbox_app_package = "Microsoft.XboxApp_8wekyb3d8bbwe"
+    try:
+        live_gamer_path = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{xbox_app_package}\\LocalState\\XboxLiveGamer.xml"))
+        with live_gamer_path.open("r", encoding="utf-8") as f:
+            gamer = json.load(f)
+        known_user_id = gamer.get("XboxUserId")
+        if known_user_id != user_id:
+            return None
+        return gamer.get("Gamertag")
+    except:
+        return None
+
+
+def find_user_containers(pkg_name) -> List[Tuple[int | str, Path]]:
     # Find container dir
     wgs_dir = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}\\SystemAppData\\wgs"))
     if not wgs_dir.is_dir():
-        return None
+        return []
     # Get the correct user directory
-    dirs = [d for d in wgs_dir.iterdir() if d.name != "t"]
-    dir_count = len(dirs)
-    if dir_count != 1:
-        raise Exception(f"Expected one user directory in wgs directory, found {dir_count}")
+    has_backups = False
+    valid_user_dirs = []
+    for entry in wgs_dir.iterdir():
+        if not entry.is_dir():
+            continue
+        if entry.name == "t":
+            continue
+        if "backup" in entry.name:
+            has_backups = True
+            continue
+        if len(entry.name.split("_")) == 2:
+            valid_user_dirs.append(entry)
 
-    containers_dir = wgs_dir / dirs[0]
+    if has_backups:
+        print("  !! The save directory contains backups !!")
+        print("     This script will currently skip backups made by the Xbox app.")
+        print("     Press enter to continue.")
+        input()
+
+    if len(valid_user_dirs) == 0:
+        # No saves for any users
+        return []
+
+    user_dirs = []
+
+    for valid_user_dir in valid_user_dirs:
+        user_id_hex, title_id_hex = valid_user_dir.name.split("_", 1)
+        user_id = int(user_id_hex, 16)
+        user_name = get_xbox_user_name(user_id)
+        user_dirs.append((user_name or user_id, valid_user_dir))
+
+    return user_dirs
+
+
+def read_user_containers(user_wgs_dir: Path) -> Tuple[str, List[Dict[str, Any]]]:
+
+    containers_dir = user_wgs_dir
     containers_idx_path = containers_dir / "containers.index"
 
     containers = []
@@ -92,7 +139,7 @@ def read_containers(pkg_name):
 
         # Creation date, FILETIME
         creation_date = read_filetime(f)
-        print(f"  Container index created at {creation_date}")
+        # print(f"  Container index created at {creation_date}")
         # Unknown
         f.read(4)
         read_utf16_str(f)
@@ -288,10 +335,6 @@ def main():
     print("Xbox Game Pass for PC savefile extractor")
     print("========================================")
 
-    # Create tempfile directory
-    # Control save files need this, as we need to create files that do not exist in the XGP save data
-    temp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-
     # Discover supported games
     found_games = discover_games()
 
@@ -304,36 +347,43 @@ def main():
         print("- %s" % name)
 
         try:
-            read_result = read_containers(supported_xgp_apps[name])
-            if read_result is None:
+            user_containers = find_user_containers(supported_xgp_apps[name])
+            if len(user_containers) == 0:
                 print("  No containers for the game, maybe the game is not installed anymore")
                 print()
                 continue
-            store_pkg_name, containers = read_result
 
-            # Get save file paths
-            save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
-            print("  Save files:")
-            for file_name, _ in save_paths:
-                print(f"  - {file_name}")
+            for xbox_username_or_id, container_dir in user_containers:
+                read_result = read_user_containers(container_dir)
+                store_pkg_name, containers = read_result
 
-            # Create a ZIP file
-            formatted_game_name = name.replace(" ", "_").replace(":", "_").replace("'", "").lower()
-            timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
-            zip_name = "%s_%s.zip" % (formatted_game_name, timestamp)
-            with zipfile.ZipFile(zip_name, "x") as save_zip:
-                for file_name, file_path in save_paths:
-                    save_zip.write(file_path, arcname=file_name)
+                # Create tempfile directory
+                # Some save files need this, as we need to create files that do not exist in the XGP save data
+                temp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
 
-            print()
-            print("  Save files written to \"%s\"" % zip_name)
+                # Get save file paths
+                save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
+                print(f"  Save files for user {xbox_username_or_id}:")
+                for file_name, _ in save_paths:
+                    print(f"  - {file_name}")
+
+                # Create a ZIP file
+                formatted_game_name = name.replace(" ", "_").replace(":", "_").replace("'", "").lower()
+                timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
+                zip_name = "{}_{}_{}.zip".format(formatted_game_name, xbox_username_or_id, timestamp)
+                with zipfile.ZipFile(zip_name, "x") as save_zip:
+                    for file_name, file_path in save_paths:
+                        save_zip.write(file_path, arcname=file_name)
+
+                temp_dir.cleanup()
+
+                print()
+                print("  Save files written to \"%s\"" % zip_name)
 
         except Exception:
             print(f"  Failed to extract saves:")
             traceback.print_exc()
             print()
-
-    temp_dir.cleanup()
 
     print()
     print("Press enter to quit")
