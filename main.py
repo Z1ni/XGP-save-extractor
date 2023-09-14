@@ -53,6 +53,15 @@ def read_filetime(f) -> datetime:
     return filetime_epoch + timedelta(seconds=filetime_seconds)
 
 
+def print_sync_warning(title: str):
+    print()
+    print(f"  !! {title} !!")
+    print("     Xbox cloud save syncing might not be complete, try again later.")
+    print("     Extracted saves for this game might be corrupted!")
+    print("     Press enter to skip and continue.")
+    input()
+
+
 def read_containers(pkg_name):
     # Find container dir
     wgs_dir = os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}\\SystemAppData\\wgs")
@@ -114,7 +123,13 @@ def read_containers(pkg_name):
 
             # Read the container file in the container directory
             container_path = os.path.join(containers_dir, container_guid.hex.upper())
-            with open(os.path.join(container_path, f"container.{container_num}"), "rb") as cf:
+            container_file_path = os.path.join(container_path, f"container.{container_num}")
+
+            if not os.path.isfile(container_file_path):
+                print_sync_warning(f"Missing container \"{container_name}\"")
+                continue
+
+            with open(container_file_path, "rb") as cf:
                 # Unknown (always 04 00 00 00 ?)
                 cf.read(4)
                 # Number of files in this container
@@ -124,13 +139,35 @@ def read_containers(pkg_name):
                     file_name = read_utf16_str(cf, 64)
                     # Read file GUID
                     file_guid = uuid.UUID(bytes_le=cf.read(16))
-                    # Ignore the copy of the GUID
-                    cf.read(16)
+                    # Read the copy of the GUID
+                    file_guid_2 = uuid.UUID(bytes_le=cf.read(16))
+
+                    if file_guid == file_guid_2:
+                        file_path = os.path.join(container_path, file_guid.hex.upper())
+                    else:
+                        # Check if one of the file paths exist
+                        file_guid_1_path = os.path.join(container_path, file_guid.hex.upper())
+                        file_guid_2_path = os.path.join(container_path, file_guid_2.hex.upper())
+
+                        file_1_exists = os.path.isfile(file_guid_1_path)
+                        file_2_exists = os.path.isfile(file_guid_2_path)
+
+                        if file_1_exists and not file_2_exists:
+                            file_path = file_guid_1_path
+                        elif not file_1_exists and file_2_exists:
+                            file_path = file_guid_2_path
+                        elif file_1_exists and file_2_exists:
+                            # Which one to use?
+                            print_sync_warning(f"Two files exist for container \"{container_name}\" file \"{file_name}\": {file_guid} and {file_guid_2}, can't choose one")
+                            continue
+                        else:
+                            print_sync_warning(f"Missing file \"{file_name}\" inside container \"{container_name}\"")
+                            continue
 
                     files.append({
                         "name": file_name,
                         # "guid": file_guid,
-                        "path": os.path.join(container_path, file_guid.hex.upper())
+                        "path": file_path
                     })
 
             containers.append({
