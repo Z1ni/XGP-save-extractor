@@ -335,6 +335,10 @@ def main():
 
     temp_dir.cleanup()
 
+    print()
+    print("Press enter to quit")
+    input()
+
 
 if __name__ == "__main__":
     main()
