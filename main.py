@@ -35,8 +35,8 @@ filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
 def discover_games():
     found_games = []
     for game_name, pkg_name in supported_xgp_apps.items():
-        pkg_path = os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}")
-        if os.path.exists(pkg_path):
+        pkg_path = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}"))
+        if pkg_path.exists():
             found_games.append(game_name)
     return found_games
 
@@ -64,22 +64,22 @@ def print_sync_warning(title: str):
 
 def read_containers(pkg_name):
     # Find container dir
-    wgs_dir = os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}\\SystemAppData\\wgs")
-    if not os.path.isdir(wgs_dir):
+    wgs_dir = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}\\SystemAppData\\wgs"))
+    if not wgs_dir.is_dir():
         return None
     # Get the correct user directory
-    dirs = [d for d in os.listdir(wgs_dir) if d != "t"]
+    dirs = [d for d in wgs_dir.iterdir() if d.name != "t"]
     dir_count = len(dirs)
     if dir_count != 1:
         raise Exception(f"Expected one user directory in wgs directory, found {dir_count}")
 
-    containers_dir = os.path.join(wgs_dir, dirs[0])
-    containers_idx_path = os.path.join(containers_dir, "containers.index")
+    containers_dir = wgs_dir / dirs[0]
+    containers_idx_path = containers_dir / "containers.index"
 
     containers = []
 
     # Read the index file
-    with open(containers_idx_path, "rb") as f:
+    with containers_idx_path.open("rb") as f:
         # Unknown
         f.read(4)
 
@@ -122,14 +122,14 @@ def read_containers(pkg_name):
             files = []
 
             # Read the container file in the container directory
-            container_path = os.path.join(containers_dir, container_guid.hex.upper())
-            container_file_path = os.path.join(container_path, f"container.{container_num}")
+            container_path = containers_dir / container_guid.hex.upper()
+            container_file_path = container_path / f"container.{container_num}"
 
-            if not os.path.isfile(container_file_path):
+            if not container_file_path.is_file():
                 print_sync_warning(f"Missing container \"{container_name}\"")
                 continue
 
-            with open(container_file_path, "rb") as cf:
+            with container_file_path.open("rb") as cf:
                 # Unknown (always 04 00 00 00 ?)
                 cf.read(4)
                 # Number of files in this container
@@ -143,14 +143,14 @@ def read_containers(pkg_name):
                     file_guid_2 = uuid.UUID(bytes_le=cf.read(16))
 
                     if file_guid == file_guid_2:
-                        file_path = os.path.join(container_path, file_guid.hex.upper())
+                        file_path = container_path / file_guid.hex.upper()
                     else:
                         # Check if one of the file paths exist
-                        file_guid_1_path = os.path.join(container_path, file_guid.hex.upper())
-                        file_guid_2_path = os.path.join(container_path, file_guid_2.hex.upper())
+                        file_guid_1_path = container_path / file_guid.hex.upper()
+                        file_guid_2_path = container_path / file_guid_2.hex.upper()
 
-                        file_1_exists = os.path.isfile(file_guid_1_path)
-                        file_2_exists = os.path.isfile(file_guid_2_path)
+                        file_1_exists = file_guid_1_path.is_file()
+                        file_2_exists = file_guid_2_path.is_file()
 
                         if file_1_exists and not file_2_exists:
                             file_path = file_guid_1_path
