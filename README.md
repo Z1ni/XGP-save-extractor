@@ -6,25 +6,25 @@ When run, the script produces a ZIP file for each supported game save found in t
 In most cases the files in the ZIP can be copied to the save directory of the Steam/Epic version of the game. To find out the save file location, check [PCGamingWiki](https://www.pcgamingwiki.com/).
 
 ## Supported games
-If you migrate a save to Steam/Epic version that's listed with ❌ below, please open an issue and confirm whether it worked, so the table can be updated.
+If you migrate a save to Steam/Epic version that's listed with ❔ below, please open an issue and confirm whether it worked, so the table can be updated.
 
 If you want the script to support another game, please open an issue.
 
-Legend: ✅ Confirmed working, ❌ Unconfirmed, - Not available in the store
+Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 
 | Game | Tested w/ Steam | Tested w/ Epic |
 |-|-|-|
 | Starfield | ✅ | - |
-| A Plague Tale: Requiem | ❌ | ❌ |
+| A Plague Tale: Requiem | ❔ | ❔ |
 | Yakuza 0 | ✅ | - |
-| Yakuza: Like a Dragon | ❌ | - |
-| Octopath Traveller | ❌ | ❌ |
-| Just Cause 4 | ❌ | ❌ |
-| Hades | ❌ | ❌ |
-| Control | ❌ | ✅ |
+| Yakuza: Like a Dragon | ❔ | - |
+| Octopath Traveller | ❔ | ❔ |
+| Just Cause 4 | ❔ | ❔ |
+| Hades | ❔ | ❔ |
+| Control | ❔ | ✅ |
 | Final Fantasy XV | ✅ | - |
 | Atomic Heart | ✅ | - |
-| Chorus | ✅ | ❌ |
+| Chorus | ✅ | ❔ |
 
 ## Running
 ⚠️ **NOTE**: If the save file extraction fails, wait for a bit and try again. The Xbox cloud save sync can take some time and produce invalid files while syncing is in progress.
