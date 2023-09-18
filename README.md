@@ -15,7 +15,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Game | Tested w/ Steam | Tested w/ Epic |
 |-|-|-|
 | Starfield | ✅ | - |
-| High on Life | ❔ | ❔ |
+| High on Life | ✅ | ❔ |
 | A Plague Tale: Requiem | ❔ | ❔ |
 | Yakuza 0 | ✅ | - |
 | Yakuza: Like a Dragon | ❔ | - |
