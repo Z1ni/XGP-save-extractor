@@ -28,7 +28,8 @@ supported_xgp_apps = {
     "Chorus": "DeepSilver.UnleashedGoF_hmv7qcest37me",
     "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
     "Starfield": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc",
-    "A Plague Tale: Requiem": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0"
+    "A Plague Tale: Requiem": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0",
+    "High on Life": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -230,12 +231,17 @@ def read_user_containers(user_wgs_dir: Path) -> Tuple[str, List[Dict[str, Any]]]
 def get_save_paths(store_pkg_name, containers, temp_dir):
     save_meta = []
 
-    if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"], supported_xgp_apps["Final Fantasy XV"], supported_xgp_apps["A Plague Tale: Requiem"]]:
-        # Handle Yakuza 0, Yakuza Like a Dragon, Final Fantasy XV and A Plague Tale: Requiem saves
+    if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"],
+                          supported_xgp_apps["Final Fantasy XV"], supported_xgp_apps["A Plague Tale: Requiem"],
+                          supported_xgp_apps["High on Life"]]:
+        # Handle Yakuza 0, Yakuza Like a Dragon, Final Fantasy XV, A Plague Tale: Requiem and High on Life saves
         # These all use containers in a "1 container, 1 file" manner (1c1f),
         # where the container includes a file named "data" that is the file named as the container.
         for container in containers:
             fname = container["name"]
+            if store_pkg_name == supported_xgp_apps["High on Life"]:
+                # High on Life needs a ".sav" suffix
+                fname += ".sav"
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
 
