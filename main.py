@@ -136,7 +136,7 @@ def read_user_containers(user_wgs_dir: Path) -> Tuple[str, List[Dict[str, Any]]]
         # Unknown
         f.read(4)
 
-        store_pkg_name = read_utf16_str(f).split("!Game")[0].split("!Retail")[0].split("!AppChorusShipping")[0].split("!App")[0]
+        store_pkg_name = read_utf16_str(f).split("!")[0]
 
         # Creation date, FILETIME
         creation_date = read_filetime(f)
