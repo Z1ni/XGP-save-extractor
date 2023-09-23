@@ -29,7 +29,8 @@ supported_xgp_apps = {
     "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
     "Starfield": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc",
     "A Plague Tale: Requiem": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0",
-    "High on Life": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj"
+    "High on Life": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
+    "Lies of P": "Neowiz.3616725F496B_r4z3116tdh636"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -330,6 +331,24 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
                         sfs_f.write(pad_str[:pad].encode("ascii"))
 
             save_meta.append((sfs_name, sfs_path))
+
+    elif store_pkg_name == supported_xgp_apps["Lies of P"]:
+        # Lies of P
+        for container in containers:
+            fname: str = container["name"]
+            # Lies of P prefixes the save file names with a numeric ID
+            # Filter the numbers out
+            for i, c in enumerate(fname):
+                if c.isdigit():
+                    continue
+                fname = fname[i:]
+                break
+
+            # The names also need a ".sav" suffix
+            fname += ".sav"
+            fpath = container["files"][0]["path"]
+
+            save_meta.append((fname, fpath))
 
     else:
         raise Exception("Unsupported XGP app \"%s\"" % store_pkg_name)
