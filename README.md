@@ -5,10 +5,10 @@ When run, the script produces a ZIP file for each supported game save found in t
 
 In most cases the files in the ZIP can be copied to the save directory of the Steam/Epic version of the game. To find out the save file location, check [PCGamingWiki](https://www.pcgamingwiki.com/).
 
+## ⚠️ If you want the script to support another game, please open an issue [here](https://github.com/Z1ni/XGP-save-extractor/issues/new/choose). ⚠️
+
 ## Supported games
 If you migrate a save to Steam/Epic version that's listed with ❔ below, please open an issue and confirm whether it worked, so the table can be updated.
-
-If you want the script to support another game, please open an issue.
 
 Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 
