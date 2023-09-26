@@ -35,12 +35,13 @@ supported_xgp_apps = {
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
+packages_root = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages"))
 
 
 def discover_games():
     found_games = []
     for game_name, pkg_name in supported_xgp_apps.items():
-        pkg_path = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}"))
+        pkg_path = packages_root / pkg_name
         if pkg_path.exists():
             found_games.append(game_name)
     return found_games
@@ -70,7 +71,7 @@ def print_sync_warning(title: str):
 def get_xbox_user_name(user_id: int) -> str | None:
     xbox_app_package = "Microsoft.XboxApp_8wekyb3d8bbwe"
     try:
-        live_gamer_path = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{xbox_app_package}\\LocalState\\XboxLiveGamer.xml"))
+        live_gamer_path = packages_root / xbox_app_package / "LocalState/XboxLiveGamer.xml"
         with live_gamer_path.open("r", encoding="utf-8") as f:
             gamer = json.load(f)
         known_user_id = gamer.get("XboxUserId")
@@ -83,7 +84,7 @@ def get_xbox_user_name(user_id: int) -> str | None:
 
 def find_user_containers(pkg_name) -> List[Tuple[int | str, Path]]:
     # Find container dir
-    wgs_dir = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages\\{pkg_name}\\SystemAppData\\wgs"))
+    wgs_dir = packages_root / pkg_name / "SystemAppData/wgs"
     if not wgs_dir.is_dir():
         return []
     # Get the correct user directory
@@ -284,7 +285,7 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
             for file in container["files"]:
                 save_meta.append((path / f"{file['name']}.chunk", file['path']))
-                
+
     elif store_pkg_name in [supported_xgp_apps["Atomic Heart"]]:
         # Handle Atomic Heart saves
         # Atomic Heart uses containers in a "1 container, 1 file" manner (1c1f),
