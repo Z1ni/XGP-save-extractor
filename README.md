@@ -15,6 +15,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Game | Tested w/ Steam | Tested w/ Epic |
 |-|-|-|
 | Starfield | ✅ | - |
+| Totally Accurate Battle Simulator | ✅ | - |
 | Lies of P | ✅ | - |
 | High on Life | ✅ | ❔ |
 | A Plague Tale: Requiem | ❔ | ❔ |
