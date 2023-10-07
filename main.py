@@ -31,7 +31,8 @@ supported_xgp_apps = {
     "A Plague Tale: Requiem": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0",
     "High on Life": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
     "Lies of P": "Neowiz.3616725F496B_r4z3116tdh636",
-    "Totally Accurate Battle Simulator": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct"
+    "Totally Accurate Battle Simulator": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
+    "SnowRunner": "FocusHomeInteractiveSA.SnowRunnerWindows10_4hny5m903y3g0"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -266,6 +267,15 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
         container = containers[0]
         for c_file in container["files"]:
             save_meta.append((c_file["name"] + '.sav', c_file["path"]))
+
+    elif store_pkg_name in [supported_xgp_apps["SnowRunner"]]:
+        # Handle SnowRunner saves just as Chorus above, but with different extension.
+        # All of these games use containers in a "1 container, n files" manner (1cnf), where there exists only one
+        # container that contains all the savefiles.
+        # The save files seem to be the same as in the Steam version.
+        container = containers[0]
+        for c_file in container["files"]:
+            save_meta.append((c_file["name"] + '.cfg', c_file["path"]))
 
     elif store_pkg_name == supported_xgp_apps["Control"]:
         # Handle Control saves
