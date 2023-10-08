@@ -408,6 +408,8 @@ def main():
 
                 # Get save file paths
                 save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
+                if len(save_paths) == 0:
+                    continue
                 print(f"  Save files for user {xbox_username_or_id}:")
                 for file_name, _ in save_paths:
                     print(f"  - {file_name}")
