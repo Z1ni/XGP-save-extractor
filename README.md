@@ -15,6 +15,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Game | Tested w/ Steam | Tested w/ Epic |
 |-|-|-|
 | Starfield | ✅ | - |
+| Wo Long: Fallen Dynasty | ❔ | - |
 | Chained Echoes | ❔ | ❔ |
 | Persona 5 Royal | ❔ | ❔ |
 | Celeste | ❔ | ❔ |
