@@ -33,7 +33,8 @@ supported_xgp_apps = {
     "Lies of P": "Neowiz.3616725F496B_r4z3116tdh636",
     "Totally Accurate Battle Simulator": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
     "Celeste": "MattMakesGamesInc.Celeste_79daxvg0dq3v6",
-    "Persona 5 Royal": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt"
+    "Persona 5 Royal": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
+    "Chained Echoes": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -251,8 +252,9 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
             save_meta.append((fname, fpath))
 
     elif store_pkg_name in [supported_xgp_apps["Octopath Traveller"], supported_xgp_apps["Just Cause 4"],
-                            supported_xgp_apps["Hades"], supported_xgp_apps["Totally Accurate Battle Simulator"]]:
-        # Handle Octopath Traveller, Just Cause 4, Hades and TABS saves
+                            supported_xgp_apps["Hades"], supported_xgp_apps["Totally Accurate Battle Simulator"],
+                            supported_xgp_apps["Chained Echoes"]]:
+        # Handle Octopath Traveller, Just Cause 4, Hades, TABS and Chained Echoes saves
         # All of these games use containers in a "1 container, n files" manner (1cnf), where there exists only one
         # container that contains all the savefiles.
         # The save files seem to be the same as in the Steam version.
