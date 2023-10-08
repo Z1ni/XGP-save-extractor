@@ -32,7 +32,8 @@ supported_xgp_apps = {
     "High on Life": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
     "Lies of P": "Neowiz.3616725F496B_r4z3116tdh636",
     "Totally Accurate Battle Simulator": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
-    "Celeste": "MattMakesGamesInc.Celeste_79daxvg0dq3v6"
+    "Celeste": "MattMakesGamesInc.Celeste_79daxvg0dq3v6",
+    "Persona 5 Royal": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -353,6 +354,18 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
             fpath = container["files"][0]["path"]
 
             save_meta.append((fname, fpath))
+
+    elif store_pkg_name == supported_xgp_apps["Persona 5 Royal"]:
+        # Persona 5 Royal
+        # Each container represents one folder
+        for container in containers:
+            folder_name: str = container["name"]
+            for file in container["files"]:
+                fname = file["name"]
+                zip_fname = f"{folder_name}/{fname}"
+                fpath = file["path"]
+
+                save_meta.append((zip_fname, fpath))
 
     else:
         raise Exception("Unsupported XGP app \"%s\"" % store_pkg_name)
