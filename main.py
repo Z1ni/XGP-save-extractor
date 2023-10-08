@@ -31,7 +31,8 @@ supported_xgp_apps = {
     "A Plague Tale: Requiem": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0",
     "High on Life": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
     "Lies of P": "Neowiz.3616725F496B_r4z3116tdh636",
-    "Totally Accurate Battle Simulator": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct"
+    "Totally Accurate Battle Simulator": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
+    "Celeste": "MattMakesGamesInc.Celeste_79daxvg0dq3v6"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -236,10 +237,10 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
     if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"],
                           supported_xgp_apps["Final Fantasy XV"], supported_xgp_apps["A Plague Tale: Requiem"],
-                          supported_xgp_apps["High on Life"]]:
-        # Handle Yakuza 0, Yakuza Like a Dragon, Final Fantasy XV, A Plague Tale: Requiem and High on Life saves
+                          supported_xgp_apps["High on Life"], supported_xgp_apps["Celeste"]]:
+        # Handle Yakuza 0, Yakuza Like a Dragon, Final Fantasy XV, A Plague Tale: Requiem, High on Life and Celeste saves
         # These all use containers in a "1 container, 1 file" manner (1c1f),
-        # where the container includes a file named "data" that is the file named as the container.
+        # where the container includes a file named "data"/"blob" that is the file named as the container.
         for container in containers:
             fname = container["name"]
             if store_pkg_name == supported_xgp_apps["High on Life"]:
