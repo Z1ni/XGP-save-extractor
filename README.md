@@ -17,7 +17,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Starfield | ✅ | - |
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Chained Echoes | ❔ | ❔ |
-| Persona 5 Royal | ❔ | ❔ |
+| Persona 5 Royal | ✅ | - |
 | Celeste | ❔ | ❔ |
 | Totally Accurate Battle Simulator | ✅ | - |
 | Lies of P | ✅ | - |
