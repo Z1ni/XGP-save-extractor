@@ -36,7 +36,8 @@ supported_xgp_apps = {
     "Persona 5 Royal": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
     "Persona 5 Tactica": "SEGAofAmericaInc.s0cb6b3ael_s751p9cej88mt",
     "Chained Echoes": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
-    "Wo Long: Fallen Dynasty": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy"
+    "Wo Long: Fallen Dynasty": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
+    "Remnant 2": "PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -292,7 +293,7 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
             for file in container["files"]:
                 save_meta.append((path / f"{file['name']}.chunk", file['path']))
 
-    elif store_pkg_name in [supported_xgp_apps["Atomic Heart"]]:
+    elif store_pkg_name in [supported_xgp_apps["Atomic Heart"], supported_xgp_apps["Remnant 2"]]:
         # Handle Atomic Heart saves
         # Atomic Heart uses containers in a "1 container, 1 file" manner (1c1f),
         # where the container includes a file named "data" that is the file named as the container. All files need to have ".sav" added as an extension
