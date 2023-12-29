@@ -36,7 +36,8 @@ supported_xgp_apps = {
     "Persona 5 Royal": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
     "Persona 5 Tactica": "SEGAofAmericaInc.s0cb6b3ael_s751p9cej88mt",
     "Chained Echoes": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
-    "Wo Long: Fallen Dynasty": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy"
+    "Wo Long: Fallen Dynasty": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
+    "Ninja Gaiden Sigma": "946B6A6E.NINJAGAIDENSIGMA_dkffhzhmh6pmy"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -360,8 +361,8 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
             save_meta.append((fname, fpath))
 
     elif store_pkg_name in [supported_xgp_apps["Persona 5 Royal"], supported_xgp_apps["Persona 5 Tactica"], 
-                            supported_xgp_apps["Wo Long: Fallen Dynasty"]]:
-        # Persona 5 Royal, Persona 5 Tactica and Wo Long: Fallen Dynasty
+                            supported_xgp_apps["Wo Long: Fallen Dynasty"], supported_xgp_apps["Ninja Gaiden Sigma"]]:
+        # Persona 5 Royal, Persona 5 Tactica and Wo Long: Fallen Dynasty, Ninja Gaiden Sigma
         # Each container represents one folder
         for container in containers:
             folder_name: str = container["name"]
