@@ -36,7 +36,8 @@ supported_xgp_apps = {
     "Persona 5 Royal": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
     "Persona 5 Tactica": "SEGAofAmericaInc.s0cb6b3ael_s751p9cej88mt",
     "Chained Echoes": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
-    "Wo Long: Fallen Dynasty": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy"
+    "Wo Long: Fallen Dynasty": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
+    "Palworld": "PocketpairInc.Palworld_ad4psfrxyesvt"
 }
 
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
@@ -241,13 +242,14 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
     if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"],
                           supported_xgp_apps["Final Fantasy XV"], supported_xgp_apps["A Plague Tale: Requiem"],
-                          supported_xgp_apps["High on Life"], supported_xgp_apps["Celeste"]]:
+                          supported_xgp_apps["High on Life"], supported_xgp_apps["Celeste"],
+                          supported_xgp_apps["Palworld"]]:
         # Handle Yakuza 0, Yakuza Like a Dragon, Final Fantasy XV, A Plague Tale: Requiem, High on Life and Celeste saves
         # These all use containers in a "1 container, 1 file" manner (1c1f),
         # where the container includes a file named "data"/"blob" that is the file named as the container.
         for container in containers:
             fname = container["name"]
-            if store_pkg_name == supported_xgp_apps["High on Life"]:
+            if store_pkg_name == supported_xgp_apps["High on Life"] or store_pkg_name == supported_xgp_apps["Palworld"]:
                 # High on Life needs a ".sav" suffix
                 fname += ".sav"
             fpath = container["files"][0]["path"]
