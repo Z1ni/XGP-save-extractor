@@ -33,6 +33,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Final Fantasy XV | ✅ | - |
 | Atomic Heart | ✅ | - |
 | Chorus | ✅ | ❔ |
+| Palworld | ✅ | ❔ |
 
 ## Running
 ⚠️ **NOTE**: If the save file extraction fails, wait for a bit and try again. The Xbox cloud save sync can take some time and produce invalid files while syncing is in progress.
