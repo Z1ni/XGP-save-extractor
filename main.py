@@ -242,14 +242,13 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
     if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"],
                           supported_xgp_apps["Final Fantasy XV"], supported_xgp_apps["A Plague Tale: Requiem"],
-                          supported_xgp_apps["High on Life"], supported_xgp_apps["Celeste"],
-                          supported_xgp_apps["Palworld"]]:
+                          supported_xgp_apps["High on Life"], supported_xgp_apps["Celeste"]]:
         # Handle Yakuza 0, Yakuza Like a Dragon, Final Fantasy XV, A Plague Tale: Requiem, High on Life and Celeste saves
         # These all use containers in a "1 container, 1 file" manner (1c1f),
         # where the container includes a file named "data"/"blob" that is the file named as the container.
         for container in containers:
             fname = container["name"]
-            if store_pkg_name == supported_xgp_apps["High on Life"] or store_pkg_name == supported_xgp_apps["Palworld"]:
+            if store_pkg_name == supported_xgp_apps["High on Life"]:
                 # High on Life needs a ".sav" suffix
                 fname += ".sav"
             fpath = container["files"][0]["path"]
@@ -361,7 +360,7 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
             save_meta.append((fname, fpath))
 
-    elif store_pkg_name in [supported_xgp_apps["Persona 5 Royal"], supported_xgp_apps["Persona 5 Tactica"], 
+    elif store_pkg_name in [supported_xgp_apps["Persona 5 Royal"], supported_xgp_apps["Persona 5 Tactica"],
                             supported_xgp_apps["Wo Long: Fallen Dynasty"]]:
         # Persona 5 Royal, Persona 5 Tactica and Wo Long: Fallen Dynasty
         # Each container represents one folder
@@ -373,6 +372,15 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
                 fpath = file["path"]
 
                 save_meta.append((zip_fname, fpath))
+
+    elif store_pkg_name == supported_xgp_apps["Palworld"]:
+        for container in containers:
+            fname = container["name"]
+            # Each "-" in the name is a directory separator
+            fname = fname.replace("-", "/")
+            fname += ".sav"
+            fpath = container["files"][0]["path"]
+            save_meta.append((fname, fpath))
 
     else:
         raise Exception("Unsupported XGP app \"%s\"" % store_pkg_name)
