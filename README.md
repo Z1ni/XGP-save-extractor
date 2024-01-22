@@ -29,6 +29,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Palworld | ✅ | ❔ |
 | Persona 5 Royal | ✅ | - |
 | Persona 5 Tactica | ✅ | - |
+| Remnant 2 | ✅ | ❔ |
 | Starfield | ✅ | - |
 | Totally Accurate Battle Simulator | ✅ | - |
 | Wo Long: Fallen Dynasty | ❔ | - |

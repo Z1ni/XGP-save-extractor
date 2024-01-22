@@ -35,6 +35,14 @@
             }
         },
         {
+            "name": "Remnant 2",
+            "package": "PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
             "name": "Yakuza 0",
             "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
             "handler": "1c1f"
