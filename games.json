@@ -136,6 +136,12 @@
             "name": "Palworld",
             "package": "PocketpairInc.Palworld_ad4psfrxyesvt",
             "handler": "palworld"
+        },
+        // Like a Dragon: Ishin!
+        {
+            "name": "Like a Dragon: Ishin!",
+            "package": "SEGAofAmericaInc.ProjectMacan_s751p9cej88mt",
+            "handler": "like-a-dragon-ishin"
         }
     ]
 }

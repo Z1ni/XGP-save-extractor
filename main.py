@@ -383,6 +383,27 @@ def get_save_paths(
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
 
+    elif handler_name == "like-a-dragon-ishin":
+        for container in containers:
+            path = PurePath(container["name"])
+            if path.name == "datasav":
+                fpath = path.with_name("data.sav")
+            elif path.name == "datasys":
+                fpath = path.with_name("data.sys")
+            else:
+                continue
+
+            for file in container["files"]:
+                if file["name"].lower() == "data":
+                    save_meta.append((str(fpath), file["path"]))
+                elif file["name"].lower() == "icon":
+                    save_meta.append(
+                        (
+                            str(fpath.with_name(f"{fpath.parent.name}_icon.png")),
+                            file["path"],
+                        )
+                    )
+
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
 
@@ -443,7 +464,11 @@ def main():
 
                 # Create a ZIP file
                 formatted_game_name = (
-                    name.replace(" ", "_").replace(":", "_").replace("'", "").lower()
+                    name.replace(" ", "_")
+                    .replace(":", "_")
+                    .replace("'", "")
+                    .replace("!", "")
+                    .lower()
                 )
                 timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
                 zip_name = "{}_{}_{}.zip".format(

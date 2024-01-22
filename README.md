@@ -25,6 +25,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | High on Life | ✅ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
 | Lies of P | ✅ | - |
+| Like a Dragon: Ishin! | ❔ | - |
 | Octopath Traveller | ❔ | ❔ |
 | Palworld | ✅ | ❔ |
 | Persona 5 Royal | ✅ | - |
