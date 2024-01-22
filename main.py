@@ -40,6 +40,7 @@ def read_game_list() -> Dict[str, Any] | None:
             games[entry["package"]] = {
                 "name": entry["name"],
                 "handler": entry["handler"],
+                "handler_args": entry.get("handler_args") or {}
             }
         return games
     except:
