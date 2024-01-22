@@ -14,26 +14,26 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 
 | Game | Tested w/ Steam | Tested w/ Epic |
 |-|-|-|
-| Starfield | ✅ | - |
-| Wo Long: Fallen Dynasty | ❔ | - |
-| Chained Echoes | ❔ | ❔ |
-| Persona 5 Royal | ✅ | - |
-| Persona 5 Tactica | ✅ | - |
-| Celeste | ❔ | ❔ |
-| Totally Accurate Battle Simulator | ✅ | - |
-| Lies of P | ✅ | - |
-| High on Life | ✅ | ❔ |
 | A Plague Tale: Requiem | ❔ | ❔ |
-| Yakuza 0 | ✅ | - |
-| Yakuza: Like a Dragon | ❔ | - |
-| Octopath Traveller | ❔ | ❔ |
-| Just Cause 4 | ❔ | ❔ |
-| Hades | ❔ | ❔ |
+| Atomic Heart | ✅ | - |
+| Celeste | ❔ | ❔ |
+| Chained Echoes | ❔ | ❔ |
+| Chorus | ✅ | ❔ |
 | Control | ❔ | ✅ |
 | Final Fantasy XV | ✅ | - |
-| Atomic Heart | ✅ | - |
-| Chorus | ✅ | ❔ |
+| Hades | ❔ | ❔ |
+| High on Life | ✅ | ❔ |
+| Just Cause 4 | ❔ | ❔ |
+| Lies of P | ✅ | - |
+| Octopath Traveller | ❔ | ❔ |
 | Palworld | ✅ | ❔ |
+| Persona 5 Royal | ✅ | - |
+| Persona 5 Tactica | ✅ | - |
+| Starfield | ✅ | - |
+| Totally Accurate Battle Simulator | ✅ | - |
+| Wo Long: Fallen Dynasty | ❔ | - |
+| Yakuza 0 | ✅ | - |
+| Yakuza: Like a Dragon | ❔ | - |
 
 ## Running
 ⚠️ **NOTE**: If the save file extraction fails, wait for a bit and try again. The Xbox cloud save sync can take some time and produce invalid files while syncing is in progress.
