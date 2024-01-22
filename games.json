@@ -84,6 +84,14 @@
             "handler": "1cnf"
         },
         {
+            "name": "Remnant: From the Ashes",
+            "package": "PerfectWorldEntertainment.RemnantFromtheAshes_jrajkyc4tsa6w",
+            "handler": "1cnf",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
             "name": "Totally Accurate Battle Simulator",
             "package": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
             "handler": "1cnf"

@@ -30,6 +30,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Persona 5 Royal | ✅ | - |
 | Persona 5 Tactica | ✅ | - |
 | Remnant 2 | ✅ | ❔ |
+| Remnant: From the Ashes | ❔ | ❔ |
 | Starfield | ✅ | - |
 | Totally Accurate Battle Simulator | ✅ | - |
 | Wo Long: Fallen Dynasty | ❔ | - |
