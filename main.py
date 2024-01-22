@@ -16,44 +16,46 @@ from typing import Any, Dict, List, Tuple
 
 # Thanks to @snoozbuster for figuring out the container format at https://github.com/goatfungus/NMSSaveEditor/issues/306
 
-# List of supported Game Pass games and their UWP package names
-supported_xgp_apps = {
-    "Yakuza 0": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
-    "Yakuza Like a Dragon": "SEGAofAmericaInc.Yazawa_s751p9cej88mt",
-    "Octopath Traveller": "39EA002F.FrigateMS_n746a19ndrrjg",
-    "Just Cause 4": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
-    "Hades": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
-    "Control": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
-    "Atomic Heart": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
-    "Chorus": "DeepSilver.UnleashedGoF_hmv7qcest37me",
-    "Final Fantasy XV": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
-    "Starfield": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc",
-    "A Plague Tale: Requiem": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0",
-    "High on Life": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
-    "Lies of P": "Neowiz.3616725F496B_r4z3116tdh636",
-    "Totally Accurate Battle Simulator": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
-    "Celeste": "MattMakesGamesInc.Celeste_79daxvg0dq3v6",
-    "Persona 5 Royal": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
-    "Persona 5 Tactica": "SEGAofAmericaInc.s0cb6b3ael_s751p9cej88mt",
-    "Chained Echoes": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
-    "Wo Long: Fallen Dynasty": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
-    "Palworld": "PocketpairInc.Palworld_ad4psfrxyesvt"
-}
-
 filetime_epoch = datetime(1601, 1, 1, tzinfo=timezone.utc)
 packages_root = Path(os.path.expandvars(f"%LOCALAPPDATA%\\Packages"))
 
 
-def discover_games():
+def read_game_list() -> Dict[str, Any] | None:
+    try:
+        # Search for the games JSON in the script directory
+        games_json_path = Path("games.json")
+        if not games_json_path.exists():
+            # Search for the games JSON in the bundle directory
+            games_json_path = Path(__file__).resolve().with_name("games.json")
+        if not games_json_path.exists():
+            return None
+        with games_json_path.open("r") as f:
+            without_comments = "\n".join(
+                [l for l in f.readlines() if not l.lstrip().startswith("//")]
+            )
+        j = json.loads(without_comments)
+        # Create a dict with the package name as the key
+        games: Dict[str, Any] = {}
+        for entry in j["games"]:
+            games[entry["package"]] = {
+                "name": entry["name"],
+                "handler": entry["handler"],
+            }
+        return games
+    except:
+        return None
+
+
+def discover_games(supported_games: Dict[str, Any]) -> List[str]:
     found_games = []
-    for game_name, pkg_name in supported_xgp_apps.items():
+    for pkg_name in supported_games.keys():
         pkg_path = packages_root / pkg_name
         if pkg_path.exists():
-            found_games.append(game_name)
+            found_games.append(pkg_name)
     return found_games
 
 
-def read_utf16_str(f, str_len=None):
+def read_utf16_str(f, str_len=None) -> str:
     if not str_len:
         str_len = struct.unpack("<i", f.read(4))[0]
     return f.read(str_len * 2).decode("utf-16").rstrip("\0")
@@ -77,7 +79,9 @@ def print_sync_warning(title: str):
 def get_xbox_user_name(user_id: int) -> str | None:
     xbox_app_package = "Microsoft.XboxApp_8wekyb3d8bbwe"
     try:
-        live_gamer_path = packages_root / xbox_app_package / "LocalState/XboxLiveGamer.xml"
+        live_gamer_path = (
+            packages_root / xbox_app_package / "LocalState/XboxLiveGamer.xml"
+        )
         with live_gamer_path.open("r", encoding="utf-8") as f:
             gamer = json.load(f)
         known_user_id = gamer.get("XboxUserId")
@@ -88,7 +92,7 @@ def get_xbox_user_name(user_id: int) -> str | None:
         return None
 
 
-def find_user_containers(pkg_name) -> List[Tuple[int | str, Path]]:
+def find_user_containers(pkg_name: str) -> List[Tuple[int | str, Path]]:
     # Find container dir
     wgs_dir = packages_root / pkg_name / "SystemAppData/wgs"
     if not wgs_dir.is_dir():
@@ -129,7 +133,6 @@ def find_user_containers(pkg_name) -> List[Tuple[int | str, Path]]:
 
 
 def read_user_containers(user_wgs_dir: Path) -> Tuple[str, List[Dict[str, Any]]]:
-
     containers_dir = user_wgs_dir
     containers_idx_path = containers_dir / "containers.index"
 
@@ -183,7 +186,7 @@ def read_user_containers(user_wgs_dir: Path) -> Tuple[str, List[Dict[str, Any]]]
             container_file_path = container_path / f"container.{container_num}"
 
             if not container_file_path.is_file():
-                print_sync_warning(f"Missing container \"{container_name}\"")
+                print_sync_warning(f'Missing container "{container_name}"')
                 continue
 
             with container_file_path.open("rb") as cf:
@@ -215,66 +218,80 @@ def read_user_containers(user_wgs_dir: Path) -> Tuple[str, List[Dict[str, Any]]]
                             file_path = file_guid_2_path
                         elif file_1_exists and file_2_exists:
                             # Which one to use?
-                            print_sync_warning(f"Two files exist for container \"{container_name}\" file \"{file_name}\": {file_guid} and {file_guid_2}, can't choose one")
+                            print_sync_warning(
+                                f'Two files exist for container "{container_name}" file "{file_name}": {file_guid} and {file_guid_2}, can\'t choose one'
+                            )
                             continue
                         else:
-                            print_sync_warning(f"Missing file \"{file_name}\" inside container \"{container_name}\"")
+                            print_sync_warning(
+                                f'Missing file "{file_name}" inside container "{container_name}"'
+                            )
                             continue
 
-                    files.append({
-                        "name": file_name,
-                        # "guid": file_guid,
-                        "path": file_path
-                    })
+                    files.append(
+                        {
+                            "name": file_name,
+                            # "guid": file_guid,
+                            "path": file_path,
+                        }
+                    )
 
-            containers.append({
-                "name": container_name,
-                "number": container_num,
-                # "guid": container_guid,
-                "files": files
-            })
+            containers.append(
+                {
+                    "name": container_name,
+                    "number": container_num,
+                    # "guid": container_guid,
+                    "files": files,
+                }
+            )
 
     return (store_pkg_name, containers)
 
 
-def get_save_paths(store_pkg_name, containers, temp_dir):
+def get_save_paths(
+    supported_games: Dict[str, Any],
+    store_pkg_name: str,
+    containers: List[Dict[str, Any]],
+    temp_dir: tempfile.TemporaryDirectory,
+) -> List[Tuple[str, Path]]:
     save_meta = []
 
-    if store_pkg_name in [supported_xgp_apps["Yakuza 0"], supported_xgp_apps["Yakuza Like a Dragon"],
-                          supported_xgp_apps["Final Fantasy XV"], supported_xgp_apps["A Plague Tale: Requiem"],
-                          supported_xgp_apps["High on Life"], supported_xgp_apps["Celeste"]]:
-        # Handle Yakuza 0, Yakuza Like a Dragon, Final Fantasy XV, A Plague Tale: Requiem, High on Life and Celeste saves
-        # These all use containers in a "1 container, 1 file" manner (1c1f),
-        # where the container includes a file named "data"/"blob" that is the file named as the container.
+    handler_name = supported_games[store_pkg_name]["handler"]
+    handler_args = supported_games[store_pkg_name].get("handler_args") or {}
+
+    if handler_name == "1c1f":
+        # "1 container, 1 file" (1c1f). Each container contains only one file which name will be the name of the container.
+        file_suffix = handler_args.get("suffix")
         for container in containers:
             fname = container["name"]
-            if store_pkg_name == supported_xgp_apps["High on Life"]:
-                # High on Life needs a ".sav" suffix
-                fname += ".sav"
+            if file_suffix is not None:
+                # Add a suffix to the file name if configured
+                fname += file_suffix
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
 
-    elif store_pkg_name in [supported_xgp_apps["Octopath Traveller"], supported_xgp_apps["Just Cause 4"],
-                            supported_xgp_apps["Hades"], supported_xgp_apps["Totally Accurate Battle Simulator"],
-                            supported_xgp_apps["Chained Echoes"]]:
-        # Handle Octopath Traveller, Just Cause 4, Hades, TABS and Chained Echoes saves
-        # All of these games use containers in a "1 container, n files" manner (1cnf), where there exists only one
-        # container that contains all the savefiles.
-        # The save files seem to be the same as in the Steam version.
+    elif handler_name == "1cnf":
+        # "1 container, n files" (1cnf). There's only one container that contains all the savefiles.
+        file_suffix = handler_args.get("suffix")
         container = containers[0]
         for c_file in container["files"]:
-            save_meta.append((c_file["name"], c_file["path"]))
+            final_filename = c_file["name"]
+            if file_suffix is not None:
+                # Add a suffix to the file name if configured
+                final_filename += file_suffix
+            save_meta.append((final_filename, c_file["path"]))
 
-    elif store_pkg_name in [supported_xgp_apps["Chorus"]]:
-        # Handle Chorus saves
-        # All of these games use containers in a "1 container, n files" manner (1cnf), where there exists only one
-        # container that contains all the savefiles.
-        # The save files seem to be the same as in the Steam version.
-        container = containers[0]
-        for c_file in container["files"]:
-            save_meta.append((c_file["name"] + '.sav', c_file["path"]))
+    elif handler_name == "1cnf-folder":
+        # Each container represents one folder
+        for container in containers:
+            folder_name: str = container["name"]
+            for file in container["files"]:
+                fname = file["name"]
+                zip_fname = f"{folder_name}/{fname}"
+                fpath = file["path"]
+                save_meta.append((zip_fname, fpath))
 
-    elif store_pkg_name == supported_xgp_apps["Control"]:
+    elif handler_name == "control":
         # Handle Control saves
         # Control uses container in a "n containers, n files" manner (ncnf),
         # where the container represents a folder that has named files.
@@ -285,24 +302,20 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
             # Create "--containerDisplayName.chunk" that contains the container name
             # TODO: Does Control _need_ "--containerDisplayName.chunk"?
-            temp_container_disp_name_path = Path(temp_dir.name) / f"{container['name']}_--containerDisplayName.chunk"
+            temp_container_disp_name_path = (
+                Path(temp_dir.name)
+                / f"{container['name']}_--containerDisplayName.chunk"
+            )
             with temp_container_disp_name_path.open("w") as f:
                 f.write(container["name"])
-            save_meta.append((path / "--containerDisplayName.chunk", temp_container_disp_name_path))
+            save_meta.append(
+                (path / "--containerDisplayName.chunk", temp_container_disp_name_path)
+            )
 
             for file in container["files"]:
-                save_meta.append((path / f"{file['name']}.chunk", file['path']))
+                save_meta.append((path / f"{file['name']}.chunk", file["path"]))
 
-    elif store_pkg_name in [supported_xgp_apps["Atomic Heart"]]:
-        # Handle Atomic Heart saves
-        # Atomic Heart uses containers in a "1 container, 1 file" manner (1c1f),
-        # where the container includes a file named "data" that is the file named as the container. All files need to have ".sav" added as an extension
-        for container in containers:
-            fname = container["name"] + '.sav'
-            fpath = container["files"][0]["path"]
-            save_meta.append((fname, fpath))
-
-    elif store_pkg_name in [supported_xgp_apps["Starfield"]]:
+    elif handler_name == "starfield":
         # Starfield
         # The Steam version uses SFS ("Starfield save"?) files, whereas the Store version splits the SFS files into multiple files inside the containers.
         # One container is one save.
@@ -342,7 +355,7 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
             save_meta.append((sfs_name, sfs_path))
 
-    elif store_pkg_name == supported_xgp_apps["Lies of P"]:
+    elif handler_name == "lies-of-p":
         # Lies of P
         for container in containers:
             fname: str = container["name"]
@@ -360,20 +373,7 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
 
             save_meta.append((fname, fpath))
 
-    elif store_pkg_name in [supported_xgp_apps["Persona 5 Royal"], supported_xgp_apps["Persona 5 Tactica"],
-                            supported_xgp_apps["Wo Long: Fallen Dynasty"]]:
-        # Persona 5 Royal, Persona 5 Tactica and Wo Long: Fallen Dynasty
-        # Each container represents one folder
-        for container in containers:
-            folder_name: str = container["name"]
-            for file in container["files"]:
-                fname = file["name"]
-                zip_fname = f"{folder_name}/{fname}"
-                fpath = file["path"]
-
-                save_meta.append((zip_fname, fpath))
-
-    elif store_pkg_name == supported_xgp_apps["Palworld"]:
+    elif handler_name == "palworld":
         for container in containers:
             fname = container["name"]
             # Each "-" in the name is a directory separator
@@ -383,7 +383,7 @@ def get_save_paths(store_pkg_name, containers, temp_dir):
             save_meta.append((fname, fpath))
 
     else:
-        raise Exception("Unsupported XGP app \"%s\"" % store_pkg_name)
+        raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
 
     return save_meta
 
@@ -392,21 +392,35 @@ def main():
     print("Xbox Game Pass for PC savefile extractor")
     print("========================================")
 
+    games = read_game_list()
+    if games is None:
+        print("Failed to read game list. Check that games.json exists and is valid.")
+        print()
+        print("Press enter to quit")
+        input()
+        sys.exit(1)
+
     # Discover supported games
-    found_games = discover_games()
+    found_games = discover_games(games)
 
     if len(found_games) == 0:
         print("No supported games installed")
+        print()
+        print("Press enter to quit")
+        input()
         sys.exit(1)
 
     print("Installed supported games:")
-    for name in found_games:
+    for package_name in found_games:
+        name: str = games[package_name]["name"]
         print("- %s" % name)
 
         try:
-            user_containers = find_user_containers(supported_xgp_apps[name])
+            user_containers = find_user_containers(package_name)
             if len(user_containers) == 0:
-                print("  No containers for the game, maybe the game is not installed anymore")
+                print(
+                    "  No containers for the game, maybe the game is not installed anymore"
+                )
                 print()
                 continue
 
@@ -419,7 +433,7 @@ def main():
                 temp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
 
                 # Get save file paths
-                save_paths = get_save_paths(store_pkg_name, containers, temp_dir)
+                save_paths = get_save_paths(games, store_pkg_name, containers, temp_dir)
                 if len(save_paths) == 0:
                     continue
                 print(f"  Save files for user {xbox_username_or_id}:")
@@ -427,9 +441,13 @@ def main():
                     print(f"  - {file_name}")
 
                 # Create a ZIP file
-                formatted_game_name = name.replace(" ", "_").replace(":", "_").replace("'", "").lower()
+                formatted_game_name = (
+                    name.replace(" ", "_").replace(":", "_").replace("'", "").lower()
+                )
                 timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
-                zip_name = "{}_{}_{}.zip".format(formatted_game_name, xbox_username_or_id, timestamp)
+                zip_name = "{}_{}_{}.zip".format(
+                    formatted_game_name, xbox_username_or_id, timestamp
+                )
                 with zipfile.ZipFile(zip_name, "x") as save_zip:
                     for file_name, file_path in save_paths:
                         save_zip.write(file_path, arcname=file_name)
@@ -437,7 +455,8 @@ def main():
                 temp_dir.cleanup()
 
                 print()
-                print("  Save files written to \"%s\"" % zip_name)
+                print('  Save files written to "%s"' % zip_name)
+                print()
 
         except Exception:
             print(f"  Failed to extract saves:")

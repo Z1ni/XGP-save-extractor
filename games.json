@@ -1,0 +1,125 @@
+{
+    "games": [
+        // 1c1f
+        // 1 container, 1 file.
+        // Each container contains only one file which name will be the name of the container.
+        {
+            "name": "A Plague Tale: Requiem",
+            "package": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0",
+            "handler": "1c1f"
+        },
+        {
+            "name": "Atomic Heart",
+            "package": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
+            "name": "Celeste",
+            "package": "MattMakesGamesInc.Celeste_79daxvg0dq3v6",
+            "handler": "1c1f"
+        },
+        {
+            "name": "Final Fantasy XV",
+            "package": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
+            "handler": "1c1f"
+        },
+        {
+            "name": "High on Life",
+            "package": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
+            "name": "Yakuza 0",
+            "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
+            "handler": "1c1f"
+        },
+        {
+            "name": "Yakuza Like a Dragon",
+            "package": "SEGAofAmericaInc.Yazawa_s751p9cej88mt",
+            "handler": "1c1f"
+        },
+        // 1cnf
+        // 1 container, n files
+        // One container contains all save files.
+        {
+            "name": "Chained Echoes",
+            "package": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
+            "handler": "1cnf"
+        },
+        {
+            "name": "Chorus",
+            "package": "DeepSilver.UnleashedGoF_hmv7qcest37me",
+            "handler": "1cnf",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
+            "name": "Hades",
+            "package": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
+            "handler": "1cnf"
+        },
+        {
+            "name": "Just Cause 4",
+            "package": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
+            "handler": "1cnf"
+        },
+        {
+            "name": "Octopath Traveler",
+            "package": "39EA002F.FrigateMS_n746a19ndrrjg",
+            "handler": "1cnf"
+        },
+        {
+            "name": "Totally Accurate Battle Simulator",
+            "package": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
+            "handler": "1cnf"
+        },
+        // 1cnf-folder
+        // Each container represents one folder.
+        {
+            "name": "Persona 5 Royal",
+            "package": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
+            "handler": "1cnf-folder"
+        },
+        {
+            "name": "Persona 5 Tactica",
+            "package": "SEGAofAmericaInc.s0cb6b3ael_s751p9cej88mt",
+            "handler": "1cnf-folder"
+        },
+        {
+            "name": "Wo Long: Fallen Dynasty",
+            "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
+            "handler": "1cnf-folder"
+        },
+        // Control
+        {
+            "name": "Control",
+            "package": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
+            "handler": "control"
+        },
+        // Starfield
+        {
+            "name": "Starfield",
+            "package": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc",
+            "handler": "starfield"
+        },
+        // Lies of P
+        {
+            "name": "Lies of P",
+            "package": "Neowiz.3616725F496B_r4z3116tdh636",
+            "handler": "lies-of-p"
+        },
+        // Palworld
+        {
+            "name": "Palworld",
+            "package": "PocketpairInc.Palworld_ad4psfrxyesvt",
+            "handler": "palworld"
+        }
+    ]
+}
