@@ -119,6 +119,14 @@
             }
         },
         {
+            "name": "Like a Dragon Gaiden: The Man Who Erased His Name",
+            "package": "SEGAofAmericaInc.l1b05f489e_s751p9cej88mt",
+            "handler": "like-a-dragon",
+            "handler_args": {
+                "icon_format": "dds"
+            }
+        },
+        {
             "name": "Yakuza: Like a Dragon",
             "package": "SEGAofAmericaInc.Yazawa_s751p9cej88mt",
             "handler": "like-a-dragon",
