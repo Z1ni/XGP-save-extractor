@@ -21,6 +21,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Chorus | ✅ | ❔ |
 | Control | ❔ | ✅ |
 | Final Fantasy XV | ✅ | - |
+| Forza Horizon 5 | ❔ | ❔ |
 | Hades | ❔ | ❔ |
 | High on Life | ✅ | ❔ |
 | Hi-Fi RUSH | ❔ | ❔ |

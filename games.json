@@ -165,6 +165,12 @@
             "name": "Palworld",
             "package": "PocketpairInc.Palworld_ad4psfrxyesvt",
             "handler": "palworld"
+        },
+        // Forza Horizon 5
+        {
+            "name": "Forza Horizon 5",
+            "package": "Microsoft.624F8B84B80_8wekyb3d8bbwe",
+            "handler": "forza"
         }
     ]
 }

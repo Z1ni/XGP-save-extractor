@@ -402,10 +402,21 @@ def get_save_paths(
                         continue
                     save_meta.append(
                         (
-                            str(fpath.with_name(f"{fpath.parent.name}_icon.{icon_format}")),
+                            str(
+                                fpath.with_name(
+                                    f"{fpath.parent.name}_icon.{icon_format}"
+                                )
+                            ),
                             file["path"],
                         )
                     )
+
+    elif handler_name == "forza":
+        # Container name is the filename prefix, file names inside container are appended to that after "."
+        for container in containers:
+            for file in container["files"]:
+                fname = f"{container['name']}.{file['name']}"
+                save_meta.append((fname, file["path"]))
 
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
