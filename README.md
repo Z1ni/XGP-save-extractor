@@ -23,6 +23,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Final Fantasy XV | ✅ | - |
 | Hades | ❔ | ❔ |
 | High on Life | ✅ | ❔ |
+| Hi-Fi RUSH | ❔ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
 | Lies of P | ✅ | - |
 | Like a Dragon Gaiden: The Man Who Erased His Name | ❔ | - |
