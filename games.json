@@ -47,11 +47,6 @@
             "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
             "handler": "1c1f"
         },
-        {
-            "name": "Yakuza Like a Dragon",
-            "package": "SEGAofAmericaInc.Yazawa_s751p9cej88mt",
-            "handler": "1c1f"
-        },
         // 1cnf
         // 1 container, n files
         // One container contains all save files.
@@ -113,6 +108,24 @@
             "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
             "handler": "1cnf-folder"
         },
+        // Yakuza / Like a Dragon games
+        // Saves contain icons and the file names may be wrong
+        {
+            "name": "Like a Dragon: Ishin!",
+            "package": "SEGAofAmericaInc.ProjectMacan_s751p9cej88mt",
+            "handler": "like-a-dragon",
+            "handler_args": {
+                "icon_format": "png"
+            }
+        },
+        {
+            "name": "Yakuza: Like a Dragon",
+            "package": "SEGAofAmericaInc.Yazawa_s751p9cej88mt",
+            "handler": "like-a-dragon",
+            "handler_args": {
+                "icon_format": "dds"
+            }
+        },
         // Control
         {
             "name": "Control",
@@ -136,12 +149,6 @@
             "name": "Palworld",
             "package": "PocketpairInc.Palworld_ad4psfrxyesvt",
             "handler": "palworld"
-        },
-        // Like a Dragon: Ishin!
-        {
-            "name": "Like a Dragon: Ishin!",
-            "package": "SEGAofAmericaInc.ProjectMacan_s751p9cej88mt",
-            "handler": "like-a-dragon-ishin"
         }
     ]
 }

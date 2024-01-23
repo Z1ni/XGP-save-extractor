@@ -383,7 +383,7 @@ def get_save_paths(
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
 
-    elif handler_name == "like-a-dragon-ishin":
+    elif handler_name == "like-a-dragon":
         for container in containers:
             path = PurePath(container["name"])
             if path.name == "datasav":
@@ -391,15 +391,18 @@ def get_save_paths(
             elif path.name == "datasys":
                 fpath = path.with_name("data.sys")
             else:
-                continue
+                fpath = path
 
             for file in container["files"]:
                 if file["name"].lower() == "data":
                     save_meta.append((str(fpath), file["path"]))
                 elif file["name"].lower() == "icon":
+                    icon_format = handler_args.get("icon_format")
+                    if icon_format is None:
+                        continue
                     save_meta.append(
                         (
-                            str(fpath.with_name(f"{fpath.parent.name}_icon.png")),
+                            str(fpath.with_name(f"{fpath.parent.name}_icon.{icon_format}")),
                             file["path"],
                         )
                     )
