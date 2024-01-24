@@ -82,6 +82,11 @@
             "handler": "1cnf"
         },
         {
+            "name": "Monster Train",
+            "package": "69C22BB6.MonsterTrain_8ekbzbj4dakee",
+            "handler": "1cnf-folder"
+        },
+        {
             "name": "Octopath Traveler",
             "package": "39EA002F.FrigateMS_n746a19ndrrjg",
             "handler": "1cnf"

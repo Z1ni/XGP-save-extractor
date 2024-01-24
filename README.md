@@ -29,6 +29,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Lies of P | ✅ | - |
 | Like a Dragon Gaiden: The Man Who Erased His Name | ❔ | - |
 | Like a Dragon: Ishin! | ❔ | - |
+| Monster Train | ❔ | ❔ |
 | Octopath Traveller | ❔ | ❔ |
 | Palworld | ✅ | ❔ |
 | Persona 5 Royal | ✅ | - |
