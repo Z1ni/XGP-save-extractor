@@ -418,6 +418,11 @@ def get_save_paths(
                 fname = f"{container['name']}.{file['name']}"
                 save_meta.append((fname, file["path"]))
 
+    elif handler_name == "arcade-paradise":
+        # Arcade Paradise seems to save to one container with one file, which should be renamed to "RATSaveData.dat" for Steam
+        fpath = containers[0]["files"][0]["path"]
+        save_meta.append(("RATSaveData.dat", fpath))
+
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
 

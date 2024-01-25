@@ -176,6 +176,12 @@
             "name": "Forza Horizon 5",
             "package": "Microsoft.624F8B84B80_8wekyb3d8bbwe",
             "handler": "forza"
+        },
+        // Arcade Paradise
+        {
+            "name": "Arcade Paradise",
+            "package": "WiredProductions.ArcadeParadise_hxzk6evwjr6sy",
+            "handler": "arcade-paradise"
         }
     ]
 }
