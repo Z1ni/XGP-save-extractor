@@ -48,16 +48,16 @@ These games use different save formats than the Steam/Epic version that can't be
 
 | Game | Issue |
 |-|-|
-| Chivarly 2 | #39 |
-| Forza Horizon 4 | #71 |
-| Tinykin | #28 |
+| Chivarly 2 | [#39](https://github.com/Z1ni/XGP-save-extractor/issues/39) |
+| Forza Horizon 4 | [#71](https://github.com/Z1ni/XGP-save-extractor/issues/71) |
+| Tinykin | [#28](https://github.com/Z1ni/XGP-save-extractor/issues/28) |
 
 ### Possibly incompatible (needs testing)
 Please test these and report back to the issue if the extracted saves work or not.
 
 | Game | Issue |
 |-|-|
-| Forza Horizon 5 | #81 |
+| Forza Horizon 5 | [#81](https://github.com/Z1ni/XGP-save-extractor/issues/81) |
 
 ## Running
 ⚠️ **NOTE**: If the save file extraction fails, wait for a bit and try again. The Xbox cloud save sync can take some time and produce invalid files while syncing is in progress.
