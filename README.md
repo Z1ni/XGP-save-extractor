@@ -22,7 +22,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Chorus | ✅ | ❔ |
 | Control | ❔ | ✅ |
 | Final Fantasy XV | ✅ | - |
-| Forza Horizon 5 | ❔ | ❔ |
+| Forza Horizon 5 | ❔ | - |
 | Hades | ❔ | ❔ |
 | High on Life | ✅ | ❔ |
 | Hi-Fi RUSH | ❔ | ❔ |
@@ -30,9 +30,9 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Lies of P | ✅ | - |
 | Like a Dragon Gaiden: The Man Who Erased His Name | ❔ | - |
 | Like a Dragon: Ishin! | ❔ | - |
-| Monster Train | ❔ | ❔ |
+| Monster Train | ✅ | - |
 | Octopath Traveller | ❔ | ❔ |
-| Palworld | ✅ | ❔ |
+| Palworld | ✅ | - |
 | Persona 5 Royal | ✅ | - |
 | Persona 5 Tactica | ✅ | - |
 | Remnant 2 | ✅ | ❔ |
@@ -42,6 +42,22 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Yakuza 0 | ✅ | - |
 | Yakuza: Like a Dragon | ❔ | - |
+
+## Incompatible games
+These games use different save formats than the Steam/Epic version that can't be easily converted.
+
+| Game | Issue |
+|-|-|
+| Chivarly 2 | #39 |
+| Forza Horizon 4 | #71 |
+| Tinykin | #28 |
+
+### Possibly incompatible (needs testing)
+Please test these and report back to the issue if the extracted saves work or not.
+
+| Game | Issue |
+|-|-|
+| Forza Horizon 5 | #81 |
 
 ## Running
 ⚠️ **NOTE**: If the save file extraction fails, wait for a bit and try again. The Xbox cloud save sync can take some time and produce invalid files while syncing is in progress.
