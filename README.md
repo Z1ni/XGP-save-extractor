@@ -39,6 +39,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Remnant 2 | ✅ | ❔ |
 | Remnant: From the Ashes | ❔ | ❔ |
 | Starfield | ✅ | - |
+| State of Decay 2 | ❔ | ❔ |
 | Totally Accurate Battle Simulator | ✅ | - |
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Yakuza 0 | ✅ | - |

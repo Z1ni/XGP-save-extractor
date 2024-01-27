@@ -423,6 +423,11 @@ def get_save_paths(
         fpath = containers[0]["files"][0]["path"]
         save_meta.append(("RATSaveData.dat", fpath))
 
+    elif handler_name == "state-of-decay-2":
+        # This is otherwise identical to 1cnf, but we ignore the path in the file names
+        for file in containers[0]["files"]:
+            fname = file["name"].split("/")[-1] + ".sav"
+            save_meta.append((fname, file["path"]))
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
 

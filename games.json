@@ -190,6 +190,12 @@
             "name": "Arcade Paradise",
             "package": "WiredProductions.ArcadeParadise_hxzk6evwjr6sy",
             "handler": "arcade-paradise"
+        },
+        // State of Decay 2
+        {
+            "name": "State of Decay 2",
+            "package": "Microsoft.Dayton_8wekyb3d8bbwe",
+            "handler": "state-of-decay-2"
         }
     ]
 }
