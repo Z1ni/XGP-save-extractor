@@ -27,6 +27,14 @@
             "handler": "1c1f"
         },
         {
+            "name": "Fuga: Melodies of Steel 2",
+            "package": "CyberConnect2Co.Ltd.FugaMelodiesofSteel2_zpv0gf6t8hz5r",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
             "name": "High on Life",
             "package": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
             "handler": "1c1f",

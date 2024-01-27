@@ -23,6 +23,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Control | ❔ | ✅ |
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ❔ | - |
+| Fuga: Melodies of Steel 2 | ❔ | ❔ |
 | Hades | ❔ | ❔ |
 | High on Life | ✅ | ❔ |
 | Hi-Fi RUSH | ❔ | ❔ |
