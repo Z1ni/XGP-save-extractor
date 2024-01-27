@@ -15,7 +15,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Game | Tested w/ Steam | Tested w/ Epic |
 |-|-|-|
 | A Plague Tale: Requiem | ❔ | ❔ |
-| Arcade Paradise | ❔ | ❔ |
+| Arcade Paradise | ✅ | ❔ |
 | Atomic Heart | ✅ | - |
 | Celeste | ❔ | ❔ |
 | Chained Echoes | ❔ | ❔ |
