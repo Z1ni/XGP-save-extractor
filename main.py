@@ -428,6 +428,16 @@ def get_save_paths(
         for file in containers[0]["files"]:
             fname = file["name"].split("/")[-1] + ".sav"
             save_meta.append((fname, file["path"]))
+
+    elif handler_name == "railway-empire-2":
+        # Each container is one file.
+        # The files inside the container are "savegame" and "description". It seems that we can ignore "description".
+        for container in containers:
+            for file in container["files"]:
+                if file["name"] != "savegame":
+                    continue
+                save_meta.append((container["name"], file["path"]))
+
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
 

@@ -196,6 +196,12 @@
             "name": "State of Decay 2",
             "package": "Microsoft.Dayton_8wekyb3d8bbwe",
             "handler": "state-of-decay-2"
+        },
+        // Railway Empire 2
+        {
+            "name": "Railway Empire 2",
+            "package": "KalypsoMediaGroup.RailwayEmpire2Win_e60j8nnj33ga6",
+            "handler": "railway-empire-2"
         }
     ]
 }
