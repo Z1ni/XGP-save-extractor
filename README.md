@@ -45,6 +45,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Yakuza 0 | ✅ | - |
 | Yakuza: Like a Dragon | ❔ | - |
+| Ninja Gaiden Sigma | ✅ | - |
 
 ## Incompatible games
 These games use different save formats than the Steam/Epic version that can't be easily converted.
