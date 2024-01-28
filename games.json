@@ -129,6 +129,11 @@
             "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
             "handler": "1cnf-folder"
         },
+        {
+            "name": "Ninja Gaiden Sigma",
+            "package": "946B6A6E.NINJAGAIDENSIGMA_dkffhzhmh6pmy",
+            "handler": "1cnf-folder"
+        },
         // Yakuza / Like a Dragon games
         // Saves contain icons and the file names may be wrong
         {
