@@ -32,6 +32,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Like a Dragon Gaiden: The Man Who Erased His Name | ❔ | - |
 | Like a Dragon: Ishin! | ❔ | - |
 | Monster Train | ✅ | - |
+| Ninja Gaiden Sigma | ✅ | - |
 | Octopath Traveller | ❔ | ❔ |
 | Palworld | ✅ | - |
 | Persona 5 Royal | ✅ | - |
@@ -45,7 +46,6 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Yakuza 0 | ✅ | - |
 | Yakuza: Like a Dragon | ❔ | - |
-| Ninja Gaiden Sigma | ✅ | - |
 
 ## Incompatible games
 These games use different save formats than the Steam/Epic version that can't be easily converted.
