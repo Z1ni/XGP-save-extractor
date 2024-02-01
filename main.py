@@ -323,6 +323,9 @@ def get_save_paths(
         # It seems that the "BETHESDAPFH" file is a header which is padded to the next 16 byte boundary with the string "padding\0", where \0 is NUL.
         # The other files ("PnP", where n is a number starting from 0) are then concatenated into the SFS file, also with padding.
 
+        # As of at least Starfield version 1.9.51.0, the containers contain "toc" and one or more "BlobDataN" files (where N is a number starting from 0).
+        # The new format seems to already include the padding.
+
         temp_folder = Path(temp_dir.name) / "Starfield"
         temp_folder.mkdir()
 
@@ -335,14 +338,23 @@ def get_save_paths(
                 continue
             # Strip out the parent folder name
             sfs_name = path.name
-            # Arrange the files: header as index 0, P0P as 1, P1P as 2, etc.
+            # Arrange the files: header as index 0, P0P as 1, P1P as 2, etc. (or BlobData0, ... for the new format)
             parts = {}
+
+            is_new_format = "toc" in [f["name"] for f in container["files"]]
+
             for file in container["files"]:
-                if file["name"] == "BETHESDAPFH":
-                    parts[0] = file["path"]
+                if file["name"] == "toc":
+                    continue
+                if is_new_format:
+                    idx = int(file["name"].removeprefix("BlobData"))
                 else:
-                    idx = int(file["name"].strip("P")) + 1
-                    parts[idx] = file["path"]
+                    if file["name"] == "BETHESDAPFH":
+                        idx = 0
+                    else:
+                        idx = int(file["name"].strip("P")) + 1
+                parts[idx] = file["path"]
+
             # Construct the SFS file
             sfs_path = temp_folder / sfs_name
             with sfs_path.open("wb") as sfs_f:
