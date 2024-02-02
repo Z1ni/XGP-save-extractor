@@ -55,6 +55,7 @@ These games use different save formats than the Steam/Epic version that can't be
 | Chivarly 2 | [#39](https://github.com/Z1ni/XGP-save-extractor/issues/39) |
 | Death's Door | [#79](https://github.com/Z1ni/XGP-save-extractor/issues/79) |
 | Forza Horizon 4 | [#71](https://github.com/Z1ni/XGP-save-extractor/issues/71) |
+| Persona 3 Reload | [#114](https://github.com/Z1ni/XGP-save-extractor/issues/114) |
 | Tinykin | [#28](https://github.com/Z1ni/XGP-save-extractor/issues/28) |
 
 ## Running
