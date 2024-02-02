@@ -48,7 +48,6 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Totally Accurate Battle Simulator | ✅ | - |
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Yakuza 0 | ✅ | - |
-| Yakuza: Like a Dragon | ❔ | - |
 
 ## Incompatible games
 These games use different save formats than the Steam/Epic version that can't be easily converted.
@@ -60,6 +59,7 @@ These games use different save formats than the Steam/Epic version that can't be
 | Forza Horizon 4 | [#71](https://github.com/Z1ni/XGP-save-extractor/issues/71) |
 | Persona 3 Reload | [#114](https://github.com/Z1ni/XGP-save-extractor/issues/114) |
 | Tinykin | [#28](https://github.com/Z1ni/XGP-save-extractor/issues/28) |
+| Yakuza: Like a Dragon | [#72](https://github.com/Z1ni/XGP-save-extractor/issues/72) |
 
 ## Running
 > [!IMPORTANT]
