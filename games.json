@@ -207,6 +207,12 @@
             "name": "Railway Empire 2",
             "package": "KalypsoMediaGroup.RailwayEmpire2Win_e60j8nnj33ga6",
             "handler": "railway-empire-2"
+        },
+        // Persona 3 Reload
+        {
+            "name": "Persona 3 Reload",
+            "package": "SEGAofAmericaInc.L0cb6b3aea_s751p9cej88mt",
+            "handler": "persona-3-reload"
         }
     ]
 }
