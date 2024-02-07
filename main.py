@@ -263,11 +263,20 @@ def get_save_paths(
     if handler_name == "1c1f":
         # "1 container, 1 file" (1c1f). Each container contains only one file which name will be the name of the container.
         file_suffix = handler_args.get("suffix")
+        is_scorn = handler_args.get("is_scorn")
         for container in containers:
             fname = container["name"]
             if file_suffix is not None:
                 # Add a suffix to the file name if configured
                 fname += file_suffix
+            if is_scorn:
+                # Scorn has extensions at the end, but without the dot separator, so re-add them with the dot
+                if fname.endswith('sav'):
+                    fname = fname.removesuffix('sav') + '.sav'
+                elif fname.endswith('info'):
+                    fname = fname.removesuffix('info') + '.info'
+                elif fname.endswith('dat'):
+                    fname = fname.removesuffix('dat') + '.dat'
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
 
