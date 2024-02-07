@@ -207,6 +207,12 @@
             "name": "Railway Empire 2",
             "package": "KalypsoMediaGroup.RailwayEmpire2Win_e60j8nnj33ga6",
             "handler": "railway-empire-2"
+        },
+        // Scorn
+        {
+            "name": "Scorn",
+            "package": "KeplerInteractive.1439274AB3A46_ymj30pw7xe604",
+            "handler": "scorn"
         }
     ]
 }
