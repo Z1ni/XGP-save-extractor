@@ -450,6 +450,43 @@ def get_save_paths(
                     continue
                 save_meta.append((container["name"], file["path"]))
 
+    elif handler_name == "persona-3-reload":
+        # "1 container, 1 file" (1c1f). Each container contains only one file which name will be the name of the container.
+        # The Store version of Persona 3 Reload use unencrypted savefiles, whereas the Steam version use encrypted savefiles.
+        # illusion0001 uncovered the encryption method and key used in this solution.
+        temp_save_meta = []  # Temporary list
+
+        for container in containers:
+            fname = container["name"]
+            fname += ".sav"
+            fpath = container["files"][0]["path"]
+            temp_save_meta.append((fname, fpath)) # save_meta replaced by temp_save_meta
+
+        # Creating a temporary folder for P3R
+        temp_folder = Path(temp_dir.name) / "P3R"
+        temp_folder.mkdir()
+
+        key = "ae5zeitaix1joowooNgie3fahP5Ohph" # Key used to encrypt/decrypt the savefile
+        key_length = len(key)
+
+        # Encryption method
+        for file_name, file_path in temp_save_meta:
+            encrypted_file_path = temp_folder / file_name
+
+            with open(file_path, 'rb') as f:
+                data = f.read()
+
+            output_data = bytearray()
+            for j, byte in enumerate(data):
+                key_byte = ord(key[j % key_length])
+                encrypted_byte = ((((byte & 0xff) >> 4) & 3 | (byte & 3) << 4 | byte & 0xcc) ^ key_byte)
+                output_data.append(encrypted_byte)
+
+            with open(encrypted_file_path, 'wb') as f:
+                f.write(bytearray(output_data))
+
+            save_meta.append((file_name, encrypted_file_path))
+
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
 
