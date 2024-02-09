@@ -466,7 +466,7 @@ def get_save_paths(
         temp_folder = Path(temp_dir.name) / "P3R"
         temp_folder.mkdir()
 
-        key = "ae5zeitaix1joowooNgie3fahP5Ohph" #Key used to encrypt/decrypt the savefile
+        key = "ae5zeitaix1joowooNgie3fahP5Ohph" # Key used to encrypt/decrypt the savefile
         key_length = len(key)
 
         # Encryption method
