@@ -115,6 +115,11 @@
         // 1cnf-folder
         // Each container represents one folder.
         {
+            "name": "Ninja Gaiden Sigma",
+            "package": "946B6A6E.NINJAGAIDENSIGMA_dkffhzhmh6pmy",
+            "handler": "1cnf-folder"
+        },
+        {
             "name": "Persona 5 Royal",
             "package": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
             "handler": "1cnf-folder"
@@ -125,13 +130,13 @@
             "handler": "1cnf-folder"
         },
         {
-            "name": "Wo Long: Fallen Dynasty",
-            "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
+            "name": "SpiderHeck",
+            "package": "tinyBuildGames.SpiderHeck_3sz1pp2ynv2xe",
             "handler": "1cnf-folder"
         },
         {
-            "name": "Ninja Gaiden Sigma",
-            "package": "946B6A6E.NINJAGAIDENSIGMA_dkffhzhmh6pmy",
+            "name": "Wo Long: Fallen Dynasty",
+            "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
             "handler": "1cnf-folder"
         },
         // Yakuza / Like a Dragon games
