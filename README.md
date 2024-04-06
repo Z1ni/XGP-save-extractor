@@ -43,7 +43,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Railway Empire 2 | ❔ | ❔ |
 | Remnant 2 | ✅ | ❔ |
 | Remnant: From the Ashes | ❔ | ❔ |
-| SpiderHeck | ❔ | ❔ |
+| SpiderHeck | ✅ | ❔ |
 | Starfield | ✅ | - |
 | State of Decay 2 | ❔ | ❔ |
 | Totally Accurate Battle Simulator | ✅ | - |
