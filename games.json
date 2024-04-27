@@ -51,6 +51,14 @@
             }
         },
         {
+            "name": "Manor Lords",
+            "package": "HoodedHorse.ManorLords_znaey1dw2bdpr",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
             "name": "Remnant 2",
             "package": "PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w",
             "handler": "1c1f",
