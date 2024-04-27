@@ -35,6 +35,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Lies of P | ✅ | - |
 | Like a Dragon Gaiden: The Man Who Erased His Name | ❔ | - |
 | Like a Dragon: Ishin! | ❔ | - |
+| Manor Lords | ✅ | ❔ |
 | Monster Train | ✅ | - |
 | Ninja Gaiden Sigma | ✅ | - |
 | Octopath Traveller | ❔ | ❔ |
