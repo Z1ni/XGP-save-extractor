@@ -59,6 +59,14 @@
             }
         },
         {
+            "name": "Solar Ash",
+            "package": "AnnapurnaInteractive.SolarAsh_c96c51jf6wkvm",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
             "name": "Yakuza 0",
             "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
             "handler": "1c1f"
