@@ -44,6 +44,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Railway Empire 2 | ❔ | ❔ |
 | Remnant 2 | ✅ | ❔ |
 | Remnant: From the Ashes | ❔ | ❔ |
+| Solar Ash | ✅ | ❔ |
 | Starfield | ✅ | - |
 | State of Decay 2 | ❔ | ❔ |
 | Totally Accurate Battle Simulator | ✅ | - |
