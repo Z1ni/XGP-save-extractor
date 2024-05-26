@@ -85,6 +85,11 @@
             "handler": "1cnf"
         },
         {
+            "name": "Hypnospace Outlaw",
+            "package": "NoMoreRobots.HypnospaceOutlaw_671zbmwb2bw9p",
+            "handler": "1cnf"
+        },
+        {
             "name": "Just Cause 4",
             "package": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
             "handler": "1cnf"
