@@ -31,4 +31,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: xgp-save-extractor
-          path: xgp-save-extractor.exe
+          path: dist/xgp-save-extractor.exe
