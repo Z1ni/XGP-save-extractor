@@ -1,5 +1,6 @@
 name: 'Create a standalone EXE with PyInstaller'
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
