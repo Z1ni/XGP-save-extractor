@@ -51,8 +51,24 @@
             }
         },
         {
+            "name": "Manor Lords",
+            "package": "HoodedHorse.ManorLords_znaey1dw2bdpr",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
             "name": "Remnant 2",
             "package": "PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
+            "name": "Solar Ash",
+            "package": "AnnapurnaInteractive.SolarAsh_c96c51jf6wkvm",
             "handler": "1c1f",
             "handler_args": {
                 "suffix": ".sav"
@@ -82,6 +98,11 @@
         {
             "name": "Hades",
             "package": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
+            "handler": "1cnf"
+        },
+        {
+            "name": "Hypnospace Outlaw",
+            "package": "NoMoreRobots.HypnospaceOutlaw_671zbmwb2bw9p",
             "handler": "1cnf"
         },
         {

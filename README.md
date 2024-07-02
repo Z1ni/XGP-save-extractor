@@ -30,10 +30,12 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Hades | ❔ | ❔ |
 | High on Life | ✅ | ❔ |
 | Hi-Fi RUSH | ❔ | ❔ |
+| Hypnospace Outlaw | ✅ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
 | Lies of P | ✅ | - |
 | Like a Dragon Gaiden: The Man Who Erased His Name | ❔ | - |
 | Like a Dragon: Ishin! | ❔ | - |
+| Manor Lords | ✅ | ❔ |
 | Monster Train | ✅ | - |
 | Ninja Gaiden Sigma | ✅ | - |
 | Octopath Traveller | ❔ | ❔ |
@@ -43,6 +45,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Railway Empire 2 | ❔ | ❔ |
 | Remnant 2 | ✅ | ❔ |
 | Remnant: From the Ashes | ❔ | ❔ |
+| Solar Ash | ✅ | ❔ |
 | SpiderHeck | ✅ | ❔ |
 | Starfield | ✅ | - |
 | State of Decay 2 | ❔ | ❔ |
