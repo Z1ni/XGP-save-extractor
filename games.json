@@ -4,11 +4,6 @@
         // 1 container, 1 file.
         // Each container contains only one file which name will be the name of the container.
         {
-            "name": "A Plague Tale: Requiem",
-            "package": "FocusHomeInteractiveSA.APlagueTaleRequiem-Windows_4hny5m903y3g0",
-            "handler": "1c1f"
-        },
-        {
             "name": "Atomic Heart",
             "package": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
             "handler": "1c1f",
