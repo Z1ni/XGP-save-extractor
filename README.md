@@ -31,7 +31,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Fuga: Melodies of Steel 2 | ❔ | ❔ |
 | Hades | ❔ | ❔ |
 | High on Life | ✅ | ❔ |
-| Hi-Fi RUSH | ❔ | ❔ |
+| Hi-Fi RUSH | ✅ | ❔ |
 | Hypnospace Outlaw | ✅ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
 | Lies of P | ✅ | - |
