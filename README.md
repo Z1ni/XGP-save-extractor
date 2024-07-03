@@ -25,6 +25,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Chained Echoes | ❔ | ❔ |
 | Chorus | ✅ | ❔ |
 | Control | ❔ | ✅ |
+| Coral Island | ✅ | - |
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ✅ | - |
 | Fuga: Melodies of Steel 2 | ❔ | ❔ |

@@ -450,6 +450,16 @@ def get_save_paths(
                     continue
                 save_meta.append((container["name"], file["path"]))
 
+    elif handler_name == "coral-island":
+        # 1c1f with ".sav" suffix, but if the file name is prefixed with "Backup", we place it in a folder
+        # without the prefix.
+        for container in containers:
+            fname = f"{container['name']}.sav"
+            if fname.startswith("Backup"):
+                fname = f"Backup/{fname.removeprefix('Backup')}"
+            fpath = container["files"][0]["path"]
+            save_meta.append((fname, fpath))
+
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
 

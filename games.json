@@ -236,6 +236,12 @@
             "name": "Railway Empire 2",
             "package": "KalypsoMediaGroup.RailwayEmpire2Win_e60j8nnj33ga6",
             "handler": "railway-empire-2"
+        },
+        // Coral Island
+        {
+            "name": "Coral Island",
+            "package": "HumbleBundle.CoralIsland_q2mcdwmzx4qja",
+            "handler": "coral-island"
         }
     ]
 }
