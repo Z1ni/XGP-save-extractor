@@ -20,6 +20,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | A Plague Tale: Requiem | ❔ | ❔ |
 | Arcade Paradise | ✅ | ❔ |
 | Atomic Heart | ✅ | - |
+| The Callisto Protocol | ✅ | - |
 | Celeste | ❔ | ❔ |
 | Chained Echoes | ❔ | ❔ |
 | Chorus | ✅ | ❔ |

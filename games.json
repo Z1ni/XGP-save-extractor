@@ -17,6 +17,14 @@
             }
         },
         {
+            "name": "The Callisto Protocol",
+            "package": "PUBGCorp.TheCallistoProtocolXB1_gsxfe54jwf950",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
             "name": "Celeste",
             "package": "MattMakesGamesInc.Celeste_79daxvg0dq3v6",
             "handler": "1c1f"
