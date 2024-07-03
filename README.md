@@ -60,6 +60,7 @@ These games use different save formats than the Steam/Epic version that can't be
 
 | Game | Issue |
 |-|-|
+| ARK: Survival Ascended | [#165](https://github.com/Z1ni/XGP-save-extractor/issues/165) |
 | Chivarly 2 | [#39](https://github.com/Z1ni/XGP-save-extractor/issues/39) |
 | Death's Door | [#79](https://github.com/Z1ni/XGP-save-extractor/issues/79) |
 | Forza Horizon 4 | [#71](https://github.com/Z1ni/XGP-save-extractor/issues/71) |
