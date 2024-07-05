@@ -17,19 +17,20 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 
 | Game | Tested w/ Steam | Tested w/ Epic |
 |-|-|-|
-| A Plague Tale: Requiem | ❔ | ❔ |
 | Arcade Paradise | ✅ | ❔ |
 | Atomic Heart | ✅ | - |
+| The Callisto Protocol | ✅ | - |
 | Celeste | ❔ | ❔ |
 | Chained Echoes | ❔ | ❔ |
 | Chorus | ✅ | ❔ |
 | Control | ❔ | ✅ |
+| Coral Island | ✅ | - |
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ✅ | - |
 | Fuga: Melodies of Steel 2 | ❔ | ❔ |
 | Hades | ❔ | ❔ |
 | High on Life | ✅ | ❔ |
-| Hi-Fi RUSH | ❔ | ❔ |
+| Hi-Fi RUSH | ✅ | ❔ |
 | Hypnospace Outlaw | ✅ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
 | Lies of P | ✅ | - |
@@ -59,6 +60,8 @@ These games use different save formats than the Steam/Epic version that can't be
 
 | Game | Issue |
 |-|-|
+| A Plague Tale: Requiem | [#139](https://github.com/Z1ni/XGP-save-extractor/issues/139) |
+| ARK: Survival Ascended | [#165](https://github.com/Z1ni/XGP-save-extractor/issues/165) |
 | Chivarly 2 | [#39](https://github.com/Z1ni/XGP-save-extractor/issues/39) |
 | Death's Door | [#79](https://github.com/Z1ni/XGP-save-extractor/issues/79) |
 | Forza Horizon 4 | [#71](https://github.com/Z1ni/XGP-save-extractor/issues/71) |
