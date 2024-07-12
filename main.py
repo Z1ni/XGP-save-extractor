@@ -1,4 +1,5 @@
 import json
+import argparse
 import os
 import struct
 import sys
@@ -489,28 +490,46 @@ def main():
         sys.exit(1)
 
     print("Installed supported games:")
-    for package_name in found_games:
+    for idx, package_name in enumerate(found_games, start=1):
         name: str = games[package_name]["name"]
-        print("- %s" % name)
+        print(f"{idx}. {name}")
+
+    selected_games = []
+    while True:
+        try:
+            game_num = int(input("\nEnter the number of the game to extract saves from (or type 'quit' to exit): "))
+            if game_num == 0 or game_num > len(found_games):
+                print("Invalid selection, please try again.")
+            else:
+                selected_games.append(list(found_games)[game_num - 1])
+                break  # Add this break statement
+        except ValueError:
+            if input("Invalid input, do you want to quit? [y/n] ").lower() == "y":
+                break
+        except IndexError:
+            print("Invalid selection, please try again.")
+
+    print()
+
+    for package_name in found_games:
+        if package_name not in selected_games:
+            continue
+
+        name: str = games[package_name]["name"]
+        print(f"Extracting saves for {name}...")
 
         try:
             user_containers = find_user_containers(package_name)
             if len(user_containers) == 0:
-                print(
-                    "  No containers for the game, maybe the game is not installed anymore"
-                )
-                print()
+                print(f"  No containers for the game, maybe the game is not installed anymore")
                 continue
 
             for xbox_username_or_id, container_dir in user_containers:
                 read_result = read_user_containers(container_dir)
                 store_pkg_name, containers = read_result
 
-                # Create tempfile directory
-                # Some save files need this, as we need to create files that do not exist in the XGP save data
                 temp_dir = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
 
-                # Get save file paths
                 save_paths = get_save_paths(games, store_pkg_name, containers, temp_dir)
                 if len(save_paths) == 0:
                     continue
@@ -518,18 +537,10 @@ def main():
                 for file_name, _ in save_paths:
                     print(f"  - {file_name}")
 
-                # Create a ZIP file
-                formatted_game_name = (
-                    name.replace(" ", "_")
-                    .replace(":", "_")
-                    .replace("'", "")
-                    .replace("!", "")
-                    .lower()
-                )
                 timestamp = datetime.now().strftime("%Y-%m-%d_%H_%M_%S")
                 zip_name = "{}_{}_{}.zip".format(
-                    formatted_game_name, xbox_username_or_id, timestamp
-                )
+                    name.replace(" ", "_").replace(":", "_").replace("'", "").replace("!", "").lower(),
+                    xbox_username_or_id, timestamp)
                 with zipfile.ZipFile(zip_name, "x") as save_zip:
                     for file_name, file_path in save_paths:
                         save_zip.write(file_path, arcname=file_name)
@@ -544,11 +555,6 @@ def main():
             print(f"  Failed to extract saves:")
             traceback.print_exc()
             print()
-
-    print()
-    print("Press enter to quit")
-    input()
-
 
 if __name__ == "__main__":
     main()
