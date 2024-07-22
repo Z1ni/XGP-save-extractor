@@ -146,8 +146,8 @@ def read_user_containers(user_wgs_dir: Path) -> Tuple[str, List[Dict[str, Any]]]
 
         container_count = struct.unpack("<i", f.read(4))[0]
 
-        # Unknown
-        f.read(4)
+        # Package display name seems to be available only on console saves
+        pkg_display_name = read_utf16_str(f)
 
         store_pkg_name = read_utf16_str(f).split("!")[0]
 
