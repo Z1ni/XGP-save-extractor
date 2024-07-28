@@ -530,7 +530,7 @@ def main():
                 zip_name = "{}_{}_{}.zip".format(
                     formatted_game_name, xbox_username_or_id, timestamp
                 )
-                with zipfile.ZipFile(zip_name, "x") as save_zip:
+                with zipfile.ZipFile(zip_name, "x", zipfile.ZIP_DEFLATED) as save_zip:
                     for file_name, file_path in save_paths:
                         save_zip.write(file_path, arcname=file_name)
 
