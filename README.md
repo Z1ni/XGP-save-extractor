@@ -34,8 +34,6 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Hypnospace Outlaw | ✅ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
 | Lies of P | ✅ | - |
-| Like a Dragon Gaiden: The Man Who Erased His Name | ❔ | - |
-| Like a Dragon: Ishin! | ❔ | - |
 | Manor Lords | ✅ | ❔ |
 | Monster Train | ✅ | - |
 | Ninja Gaiden Sigma | ✅ | - |
@@ -53,7 +51,6 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Totally Accurate Battle Simulator | ✅ | - |
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Yakuza 0 | ✅ | - |
-| Yakuza: Like a Dragon | ❔ | - |
 
 ## Incompatible games
 These games use different save formats than the Steam/Epic version that can't be easily converted.
@@ -65,8 +62,11 @@ These games use different save formats than the Steam/Epic version that can't be
 | Chivarly 2 | [#39](https://github.com/Z1ni/XGP-save-extractor/issues/39) |
 | Death's Door | [#79](https://github.com/Z1ni/XGP-save-extractor/issues/79) |
 | Forza Horizon 4 | [#71](https://github.com/Z1ni/XGP-save-extractor/issues/71) |
+| Like a Dragon Gaiden: The Man Who Erased His Name | [#66](https://github.com/Z1ni/XGP-save-extractor/issues/66) |
+| Like a Dragon: Ishin! | [#180](https://github.com/Z1ni/XGP-save-extractor/issues/180) |
 | Persona 3 Reload | [#114](https://github.com/Z1ni/XGP-save-extractor/issues/114) |
 | Tinykin | [#28](https://github.com/Z1ni/XGP-save-extractor/issues/28) |
+| Yakuza: Like a Dragon | [#72](https://github.com/Z1ni/XGP-save-extractor/issues/72) |
 
 ## Running
 > [!IMPORTANT]
