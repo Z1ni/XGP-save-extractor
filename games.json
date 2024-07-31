@@ -242,6 +242,12 @@
             "name": "Coral Island",
             "package": "HumbleBundle.CoralIsland_q2mcdwmzx4qja",
             "handler": "coral-island"
+        },
+        // Cricket 24
+        {
+            "name": "Cricket 24",
+            "package": "BigbenInteractiveSA.Cricket24Win10_tqjv3vrxr8ppw",
+            "handler": "cricket-24"
         }
     ]
 }

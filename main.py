@@ -423,6 +423,24 @@ def get_save_paths(
                         )
                     )
 
+    elif handler_name == "cricket-24":
+        # 1cnf-folder, but with a file suffix and "CHUNK" suffix removal
+        # TODO: Can there be more than one chunk?
+        # Each container represents one folder
+        for container in containers:
+            folder_name: str = container["name"]
+            for file in container["files"]:
+                fname = file["name"]
+                fname = fname.removesuffix(".CHUNK0")
+                if "CHUNK" in fname:
+                    raise Exception(
+                        f"Unexpected chunk name in {file['name']}! Please report this issue on the GitHub repository!"
+                    )
+                fname += ".SAV"
+                zip_fname = f"{folder_name}/{fname}"
+                fpath = file["path"]
+                save_meta.append((zip_fname, fpath))
+
     elif handler_name == "forza":
         # Container name is the filename prefix, file names inside container are appended to that after "."
         for container in containers:

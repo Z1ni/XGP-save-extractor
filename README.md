@@ -25,6 +25,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Chorus | ✅ | ❔ |
 | Control | ❔ | ✅ |
 | Coral Island | ✅ | - |
+| Cricket 24 | ✅ | - |
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ✅ | - |
 | Fuga: Melodies of Steel 2 | ❔ | ❔ |
