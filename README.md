@@ -65,6 +65,7 @@ These games use different save formats than the Steam/Epic version that can't be
 | Forza Horizon 4 | [#71](https://github.com/Z1ni/XGP-save-extractor/issues/71) |
 | Like a Dragon Gaiden: The Man Who Erased His Name | [#66](https://github.com/Z1ni/XGP-save-extractor/issues/66) |
 | Like a Dragon: Ishin! | [#180](https://github.com/Z1ni/XGP-save-extractor/issues/180) |
+| Neon White | [#185](https://github.com/Z1ni/XGP-save-extractor/issues/185) |
 | Persona 3 Reload | [#114](https://github.com/Z1ni/XGP-save-extractor/issues/114) |
 | Tinykin | [#28](https://github.com/Z1ni/XGP-save-extractor/issues/28) |
 | Yakuza: Like a Dragon | [#72](https://github.com/Z1ni/XGP-save-extractor/issues/72) |
