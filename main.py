@@ -477,6 +477,14 @@ def get_save_paths(
                 fname = f"Backup/{fname.removeprefix('Backup')}"
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
+    
+    elif handler_name == "galacticare":
+        for container in containers:
+            for file in container["files"]:
+                if file["name"] != "PlayerData":
+                    continue
+                save_meta.append((container["name"], file["path"]))
+
 
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)

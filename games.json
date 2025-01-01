@@ -248,6 +248,12 @@
             "name": "Cricket 24",
             "package": "BigbenInteractiveSA.Cricket24Win10_tqjv3vrxr8ppw",
             "handler": "cricket-24"
+        },
+        // Galacticare
+        {
+        "name": "Galacticare",
+        "package": "TheCultGamesLtd.Galacticare_vnassb3anythc",
+        "handler": "galacticare"
         }
     ]
 }
