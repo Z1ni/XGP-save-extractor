@@ -29,6 +29,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ✅ | - |
 | Fuga: Melodies of Steel 2 | ❔ | ❔ |
+| Galacticare | ✅ | ❔ |
 | Hades | ❔ | ❔ |
 | High on Life | ✅ | ❔ |
 | Hi-Fi RUSH | ✅ | ❔ |
