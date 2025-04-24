@@ -38,6 +38,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Manor Lords | ✅ | ❔ |
 | Monster Train | ✅ | - |
 | Ninja Gaiden Sigma | ✅ | - |
+| Oblivion Remastered | ✅ | ❔ |
 | Octopath Traveller | ❔ | ❔ |
 | Palworld | ✅ | - |
 | Persona 5 Royal | ✅ | - |

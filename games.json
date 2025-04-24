@@ -253,7 +253,10 @@
         {
             "name": "Oblivion Remastered",
             "package": "BethesdaSoftworks.ProjectAltar_3275kfvn8vcwc",
-            "handler": "oblivion"
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
         }
     ]
 }
