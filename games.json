@@ -248,6 +248,12 @@
             "name": "Cricket 24",
             "package": "BigbenInteractiveSA.Cricket24Win10_tqjv3vrxr8ppw",
             "handler": "cricket-24"
+        },
+        // Oblivion Remastered
+        {
+            "name": "Oblivion Remastered",
+            "package": "BethesdaSoftworks.ProjectAltar_3275kfvn8vcwc",
+            "handler": "oblivion"
         }
     ]
 }

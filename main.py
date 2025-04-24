@@ -448,6 +448,13 @@ def get_save_paths(
                 fname = f"{container['name']}.{file['name']}"
                 save_meta.append((fname, file["path"]))
 
+    elif handler_name == "oblivion":
+        # Container name is the filename prefix, file names inside container are appended to that after "."
+        for container in containers:
+            for file in container["files"]:
+                fname = f"{container['name']}.sav"
+                save_meta.append((fname, file["path"]))
+
     elif handler_name == "arcade-paradise":
         # Arcade Paradise seems to save to one container with one file, which should be renamed to "RATSaveData.dat" for Steam
         fpath = containers[0]["files"][0]["path"]
