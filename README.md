@@ -50,7 +50,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Solar Ash | ✅ | ❔ |
 | SpiderHeck | ✅ | ❔ |
 | Starfield | ✅ | - |
-| State of Decay 2 | ❔ | ❔ |
+| State of Decay 2 | ✅ | ❔ |
 | Totally Accurate Battle Simulator | ✅ | - |
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Yakuza 0 | ✅ | - |
