@@ -257,6 +257,12 @@
             "handler_args": {
                 "suffix": ".sav"
             }
+        },
+        // Clair Obscur: Expedition 33
+        {
+            "name": "Clair Obscur: Expedition 33",
+            "package": "KeplerInteractive.Expedition33_ymj30pw7xe604",
+            "handler": "coral-island"
         }
     ]
 }

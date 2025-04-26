@@ -25,6 +25,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Chorus | ✅ | ❔ |
 | Control | ❔ | ✅ |
 | Coral Island | ✅ | - |
+| Clair Obscur: Expedition 33 | ✅ | - |
 | Cricket 24 | ✅ | - |
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ✅ | - |
