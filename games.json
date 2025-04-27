@@ -163,6 +163,11 @@
             "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
             "handler": "1cnf-folder"
         },
+        {
+            "name": "Quantum Break",
+            "package": "Microsoft.QuantumBreak_8wekyb3d8bbwe",
+            "handler": "1cnf-folder"
+        },
         // Yakuza / Like a Dragon games
         // Saves contain icons and the file names may be wrong
         {
