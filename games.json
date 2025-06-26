@@ -62,6 +62,14 @@
             }
         },
         {
+            "name": "Mechwarrior 5 Clans",
+            "package": "PiranhaGamesInc.MechWarrior5Clans_skpx0jhaqqap2",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
             "name": "Remnant 2",
             "package": "PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w",
             "handler": "1c1f",
@@ -129,6 +137,14 @@
             "handler": "1cnf",
             "handler_args": {
                 "suffix": ".sav"
+            }
+        },
+        {
+            "name": "Sea of Stars",
+            "package": "SabotageStudio.SeaofStars_p3aneehax6csy",
+            "handler": "1cnf",
+            "handler_args": {
+                "suffix": ".sos"
             }
         },
         {
