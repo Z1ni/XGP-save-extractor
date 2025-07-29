@@ -82,6 +82,11 @@
             "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
             "handler": "1c1f"
         },
+        {
+            "name": "Yakuza Kiwami",
+            "package": "SEGAofAmericaInc.YakuzaKiwamiPC_s751p9cej88mt",
+            "handler": "1c1f"
+        },
         // 1cnf
         // 1 container, n files
         // One container contains all save files.
