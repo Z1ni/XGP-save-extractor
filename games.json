@@ -82,6 +82,14 @@
             "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
             "handler": "1c1f"
         },
+        {
+            "name": "Trials of Mana",
+            "package": "39EA002F.TOMDF_n746a19ndrrjg",
+            "handler": "1c1f",
+			"handler_args": {
+                "suffix": ".sav"
+            }
+        },
         // 1cnf
         // 1 container, n files
         // One container contains all save files.
