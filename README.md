@@ -52,6 +52,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Starfield | ✅ | - |
 | State of Decay 2 | ✅ | ❔ |
 | Totally Accurate Battle Simulator | ✅ | - |
+| Trials of Mana | ✅ | ❔ |
 | Wo Long: Fallen Dynasty | ❔ | - |
 | Yakuza 0 | ✅ | - |
 
