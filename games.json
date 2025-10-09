@@ -91,6 +91,22 @@
             }
         },
         {
+      "name": "Lords of the Fallen",
+      "package": "CIGamesS.A.LordsoftheFallen-PC_9609msxhzdsvj",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+            }
+        },
+        {
+      "name": "Rematch",
+      "package": "SLOCLAP.ProjectRuntime_cse8z5zpmcvkt",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+            }
+        },
+        {
             "name": "Yakuza 0",
             "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
             "handler": "1c1f"
