@@ -273,7 +273,15 @@
             "name": "Railway Empire 2",
             "package": "KalypsoMediaGroup.RailwayEmpire2Win_e60j8nnj33ga6",
             "handler": "railway-empire-2"
+             
         },
+        // Railroads Online
+        {
+            "name": "Railroads Online",
+            "package": "astragonSoftwareGmbH.RailroadsOnline_gq6wh0enzmg8j",
+            "handler": "1c1f"
+        },
+        
         // Coral Island
         {
             "name": "Coral Island",
