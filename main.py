@@ -479,6 +479,16 @@ def get_save_paths(
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
 
+    elif handler_name == "metaphor-refantazio":
+        # 1c1f, but files need to to match "save0000.sav" format. "system.sav" contains game settings.
+        for container in containers:
+            if container['name'].startswith("System"):
+                fname = "system.sav"
+            else: 
+                fname = f"{container['name'].replace('SaveData','save')}.sav"
+            fpath = container["files"][0]["path"]
+            save_meta.append((fname, fpath))
+
     elif handler_name == "one-lonely-outpost":
         # One Lonely Outpost on game pass stores its data in a single gzipped JSON file that
         # contains all the individual files from the Steam version, so decompress it and extract

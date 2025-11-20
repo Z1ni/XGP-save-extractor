@@ -39,6 +39,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Lies of P | ✅ | - |
 | Manor Lords | ✅ | ❔ |
 | Mechwarrior 5 Clans | ✅ | ❔ |
+| Metaphor: ReFantazio | ✅ | ❔ |
 | Monster Train | ✅ | - |
 | Ninja Gaiden Sigma | ✅ | - |
 | Oblivion Remastered | ✅ | ❔ |
