@@ -12,6 +12,11 @@
             }
         },
         {
+            "name": "Balatro",
+            "package": "PlayStack.Balatro_3wcqaesafpzfy",
+            "handler": "1cnf-folder"
+        },
+        {
             "name": "The Callisto Protocol",
             "package": "PUBGCorp.TheCallistoProtocolXB1_gsxfe54jwf950",
             "handler": "1c1f",
