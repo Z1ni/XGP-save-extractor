@@ -306,6 +306,11 @@
             "name": "One Lonely Outpost",
             "package": "FreedomGames.OneLonelyOutpostGame_0c9x75n11d8wg",
             "handler": "one-lonely-outpost"
+        },
+        {
+            "name": "Metaphor: ReFantazio",
+            "package": "SEGAofAmericaInc.Pae22b02y_s751p9cej88mt",
+            "handler": "metaphor-refantazio"
         }
     ]
 }
