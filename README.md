@@ -34,6 +34,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Hades | ✅ | ❔ |
 | High on Life | ✅ | ❔ |
 | Hi-Fi RUSH | ✅ | ❔ |
+| Hollow Knight: Silksong | ✅ | ❔ |
 | Hypnospace Outlaw | ✅ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
 | Lies of P | ✅ | - |

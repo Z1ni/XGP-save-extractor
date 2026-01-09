@@ -301,6 +301,12 @@
             "package": "KeplerInteractive.Expedition33_ymj30pw7xe604",
             "handler": "coral-island"
         },
+        // Hollow Knight: Silksong
+        {
+            "name": "Hollow Knight: Silksong",
+            "package": "TeamCherry.HollowKnightSilksong_y4jvztpgccj42",
+            "handler": "silk"
+        },
         // One Lonely Outpost
         {
             "name": "One Lonely Outpost",

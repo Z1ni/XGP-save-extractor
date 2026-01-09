@@ -7,6 +7,7 @@ import tempfile
 import traceback
 import uuid
 import zipfile
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path, PurePath
 from typing import Any, Dict, List, Tuple
@@ -478,6 +479,21 @@ def get_save_paths(
                 fname = f"Backup/{fname.removeprefix('Backup')}"
             fpath = container["files"][0]["path"]
             save_meta.append((fname, fpath))
+    
+    elif handler_name == "silk":
+        for container in containers:
+            folder_name: str = container["name"]
+            for file in container["files"]:
+                fname = file["name"]
+                if 'shared' in folder_name.lower() or 'save' in folder_name.lower(): 
+                    zip_fname = f"{fname}"
+                elif 'restore' in folder_name.lower():
+                    suffix = int(re.search(r'\d+', folder_name).group())
+                    zip_fname = f"Restore_Points{suffix}/{fname}"
+                else:
+                    zip_fname = f"{folder_name}/{fname}"
+                fpath = file["path"]
+                save_meta.append((zip_fname, fpath))
 
     elif handler_name == "one-lonely-outpost":
         # One Lonely Outpost on game pass stores its data in a single gzipped JSON file that
