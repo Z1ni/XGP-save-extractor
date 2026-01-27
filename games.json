@@ -115,6 +115,11 @@
         // 1 container, n files
         // One container contains all save files.
         {
+            "name": "Citizen Sleeper 2: Starward Vector",
+            "package": "SurpriseAttackPtyLtd.CitizenSleeper2StarwardVector_8k24hnfn3vvj0",
+            "handler": "1cnf"
+        },
+        {
             "name": "Chained Echoes",
             "package": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
             "handler": "1cnf"
