@@ -25,6 +25,11 @@
             "handler": "1c1f"
         },
         {
+            "name": "Fallout 4",
+            "package": "BethesdaSoftworks.Fallout4-CoreGame_3275kfvn8vcwc",
+            "handler": "fallout4"
+        },        
+        {
             "name": "Doom Eternal",
             "package": "BethesdaSoftworks.DOOMEternal-PC_3275kfvn8vcwc",
             "handler": "1cnf-folder"

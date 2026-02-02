@@ -369,6 +369,76 @@ def get_save_paths(
 
             save_meta.append((sfs_name, sfs_path))
 
+    elif handler_name == "fallout4":
+        """
+        Fallout 4 (Xbox Game Pass) uses Bethesda's chunked WGS save format.
+
+        Each save slot lives under:
+        Saves/<slot_name>/
+
+        Each slot contains exactly:
+        - toc
+        - ChunkData0  (currently always a single chunk)
+
+        This handler reconstructs each save slot into a single .fos file
+        suitable for Steam / non-WGS usage.
+        """
+
+        pad_str = "padding\0" * 2
+
+        for container in containers:
+            path = PurePath(container["name"])
+
+            # Fallout 4 containers include both Saves/ and Settings/
+            # We only want actual save slots
+            if path.parent.name != "Saves":
+                continue
+
+            save_name = path.name  # already ends in .fos
+
+            parts = {}
+
+            names = [f["name"] for f in container["files"]]
+            is_chunked = "toc" in names
+
+            for file in container["files"]:
+                name = file["name"]
+
+                if name == "toc":
+                    continue
+
+                if not is_chunked:
+                    continue
+
+                if name.startswith("ChunkData"):
+                    idx = int(name.removeprefix("ChunkData"))
+                else:
+                    # Ignore unexpected files safely
+                    continue
+
+                parts[idx] = file["path"]
+
+            if not parts:
+                continue
+
+            # Reconstruct the .fos save
+            temp_folder = Path(temp_dir.name) / "Fallout4"
+            temp_folder.mkdir(exist_ok=True)
+
+            fos_path = temp_folder / save_name
+
+            with fos_path.open("wb") as fos_f:
+                for idx, part_path in sorted(parts.items()):
+                    with open(part_path, "rb") as part_f:
+                        data = part_f.read()
+                    size = fos_f.write(data)
+                    pad = 16 - (size % 16)
+                    if pad != 16:
+                        fos_f.write(pad_str[:pad].encode("ascii"))
+
+            save_meta.append((save_name, fos_path))
+
+
     elif handler_name == "lies-of-p":
         # Lies of P
         for container in containers:
