@@ -1,8 +1,5 @@
 {
     "games": [
-        // 1c1f
-        // 1 container, 1 file.
-        // Each container contains only one file which name will be the name of the container.
         {
             "name": "Atomic Heart",
             "package": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
@@ -25,10 +22,15 @@
             "handler": "1c1f"
         },
         {
+            "name": "Fallout 4",
+            "package": "BethesdaSoftworks.Fallout4-CoreGame_3275kfvn8vcwc",
+            "handler": "fallout4"
+        },
+        {
             "name": "Doom Eternal",
             "package": "BethesdaSoftworks.DOOMEternal-PC_3275kfvn8vcwc",
             "handler": "1cnf-folder"
-        },        
+        },
         {
             "name": "Final Fantasy XV",
             "package": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
@@ -111,9 +113,6 @@
                 "suffix": ".sav"
             }
         },
-        // 1cnf
-        // 1 container, n files
-        // One container contains all save files.
         {
             "name": "Chained Echoes",
             "package": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
@@ -173,8 +172,6 @@
             "package": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
             "handler": "1cnf"
         },
-        // 1cnf-folder
-        // Each container represents one folder.
         {
             "name": "Ninja Gaiden Sigma",
             "package": "946B6A6E.NINJAGAIDENSIGMA_dkffhzhmh6pmy",
@@ -200,8 +197,6 @@
             "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
             "handler": "1cnf-folder"
         },
-        // Yakuza / Like a Dragon games
-        // Saves contain icons and the file names may be wrong
         {
             "name": "Like a Dragon: Ishin!",
             "package": "SEGAofAmericaInc.ProjectMacan_s751p9cej88mt",
@@ -226,67 +221,56 @@
                 "icon_format": "dds"
             }
         },
-        // Control
         {
             "name": "Control",
             "package": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
             "handler": "control"
         },
-        // Starfield
         {
             "name": "Starfield",
             "package": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc",
             "handler": "starfield"
         },
-        // Lies of P
         {
             "name": "Lies of P",
             "package": "Neowiz.3616725F496B_r4z3116tdh636",
             "handler": "lies-of-p"
         },
-        // Palworld
         {
             "name": "Palworld",
             "package": "PocketpairInc.Palworld_ad4psfrxyesvt",
             "handler": "palworld"
         },
-        // Forza Horizon 5
         {
             "name": "Forza Horizon 5",
             "package": "Microsoft.624F8B84B80_8wekyb3d8bbwe",
             "handler": "forza"
         },
-        // Arcade Paradise
         {
             "name": "Arcade Paradise",
             "package": "WiredProductions.ArcadeParadise_hxzk6evwjr6sy",
             "handler": "arcade-paradise"
         },
-        // State of Decay 2
         {
             "name": "State of Decay 2",
             "package": "Microsoft.Dayton_8wekyb3d8bbwe",
             "handler": "state-of-decay-2"
         },
-        // Railway Empire 2
         {
             "name": "Railway Empire 2",
             "package": "KalypsoMediaGroup.RailwayEmpire2Win_e60j8nnj33ga6",
             "handler": "railway-empire-2"
         },
-        // Coral Island
         {
             "name": "Coral Island",
             "package": "HumbleBundle.CoralIsland_q2mcdwmzx4qja",
             "handler": "coral-island"
         },
-        // Cricket 24
         {
             "name": "Cricket 24",
             "package": "BigbenInteractiveSA.Cricket24Win10_tqjv3vrxr8ppw",
             "handler": "cricket-24"
         },
-        // Oblivion Remastered
         {
             "name": "Oblivion Remastered",
             "package": "BethesdaSoftworks.ProjectAltar_3275kfvn8vcwc",
@@ -295,17 +279,46 @@
                 "suffix": ".sav"
             }
         },
-        // Clair Obscur: Expedition 33
         {
             "name": "Clair Obscur: Expedition 33",
             "package": "KeplerInteractive.Expedition33_ymj30pw7xe604",
             "handler": "coral-island"
         },
-        // One Lonely Outpost
         {
             "name": "One Lonely Outpost",
             "package": "FreedomGames.OneLonelyOutpostGame_0c9x75n11d8wg",
             "handler": "one-lonely-outpost"
+        },
+        {
+            "name": "Phoenix Point",
+            "package": "SnapshotGames.PhoenixPoint_xxvrk32m0sthm",
+            "handler": "1cnf-folder"
+        },
+        {
+            "name": "Blue Prince",
+            "package": "RawFury.BluePrince_9s0pnehqffj7t",
+            "handler": "coral-island"
+        },
+        {
+            "name": "Indiana Jones and the Great Circle",
+            "package": "BethesdaSoftworks.ProjectRelic_3275kfvn8vcwc",
+            "handler": "1c1f",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
+            "name": "Avowed",
+            "package": "Microsoft.Avowed_8wekyb3d8bbwe",
+            "handler": "1cnf",
+            "handler_args": {
+                "suffix": ".sav"
+            }
+        },
+        {
+            "name": "The Outer Worlds 2",
+            "package": "Microsoft.OE-Arkansas_8wekyb3d8bbwe",
+            "handler": "1cnf-folder"
         }
     ]
 }

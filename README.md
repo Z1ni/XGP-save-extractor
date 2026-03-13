@@ -19,6 +19,8 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 |-|-|-|
 | Arcade Paradise | ✅ | ✅ |
 | Atomic Heart | ✅ | - |
+| Avowed | ❔ | ❔ |
+| Blue Prince | ❔ | ❔ |
 | The Callisto Protocol | ✅ | - |
 | Celeste | ❔ | ❔ |
 | Chained Echoes | ❔ | ❔ |
@@ -28,6 +30,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Clair Obscur: Expedition 33 | ✅ | - |
 | Cricket 24 | ✅ | - |
 | Doom Eternal | ✅ | ? |
+| Fallout 4 | ✅ | - |
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ✅ | - |
 | Fuga: Melodies of Steel 2 | ❔ | ❔ |
@@ -35,6 +38,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | High on Life | ✅ | ❔ |
 | Hi-Fi RUSH | ✅ | ❔ |
 | Hypnospace Outlaw | ✅ | ❔ |
+| Indiana Jones and the Great Circle | ❔ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
 | Lies of P | ✅ | - |
 | Manor Lords | ✅ | ❔ |
@@ -44,9 +48,11 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Oblivion Remastered | ✅ | ❔ |
 | Octopath Traveller | ❔ | ❔ |
 | One Lonely Outpost | ✅ | ❔ |
+| The Outer Worlds 2 | ❔ | ❔ |
 | Palworld | ✅ | - |
 | Persona 5 Royal | ✅ | - |
 | Persona 5 Tactica | ✅ | - |
+| Phoenix Point | ✅ | - |
 | Railway Empire 2 | ❔ | ❔ |
 | Remnant 2 | ✅ | ❔ |
 | Remnant: From the Ashes | ❔ | ❔ |
