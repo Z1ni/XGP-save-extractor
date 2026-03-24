@@ -196,6 +196,11 @@
             "handler": "1cnf-folder"
         },
         {
+            "name": "Kingdom Come: Deliverance II",
+            "package": "DeepSilver.77536C3FE941_hmv7qcest37me",
+            "handler": "1cnf-folder"
+        },
+        {
             "name": "Wo Long: Fallen Dynasty",
             "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
             "handler": "1cnf-folder"

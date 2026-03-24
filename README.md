@@ -19,7 +19,6 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 |-|-|-|
 | Arcade Paradise | ✅ | ✅ |
 | Atomic Heart | ✅ | - |
-| The Callisto Protocol | ✅ | - |
 | Celeste | ❔ | ❔ |
 | Chained Echoes | ❔ | ❔ |
 | Chorus | ✅ | ❔ |
@@ -36,6 +35,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Hi-Fi RUSH | ✅ | ❔ |
 | Hypnospace Outlaw | ✅ | ❔ |
 | Just Cause 4 | ❔ | ❔ |
+| Kingdom Come: Deliverance II | ✅ | ❔ |
 | Lies of P | ✅ | - |
 | Manor Lords | ✅ | ❔ |
 | Mechwarrior 5 Clans | ✅ | ❔ |
@@ -56,6 +56,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Starfield | ✅ | - |
 | State of Decay 2 | ✅ | ❔ |
 | The Alters | ✅ | ❔ |
+| The Callisto Protocol | ✅ | - |
 | Totally Accurate Battle Simulator | ✅ | - |
 | Trials of Mana | ✅ | ❔ |
 | Wo Long: Fallen Dynasty | ❔ | - |
