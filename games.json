@@ -176,6 +176,11 @@
         // 1cnf-folder
         // Each container represents one folder.
         {
+            "name": "Dungeons of Hinterberg",
+            "package": "CurveDigital.DungeonsOfHinterberg_1ezqdnbhnc70m",
+            "handler": "1cnf-folder"
+        },
+        {
             "name": "Ninja Gaiden Sigma",
             "package": "946B6A6E.NINJAGAIDENSIGMA_dkffhzhmh6pmy",
             "handler": "1cnf-folder"
