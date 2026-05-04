@@ -1,311 +1,316 @@
 {
-    "games": [
-        // 1c1f
-        // 1 container, 1 file.
-        // Each container contains only one file which name will be the name of the container.
-        {
-            "name": "Atomic Heart",
-            "package": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "The Callisto Protocol",
-            "package": "PUBGCorp.TheCallistoProtocolXB1_gsxfe54jwf950",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Celeste",
-            "package": "MattMakesGamesInc.Celeste_79daxvg0dq3v6",
-            "handler": "1c1f"
-        },
-        {
-            "name": "Doom Eternal",
-            "package": "BethesdaSoftworks.DOOMEternal-PC_3275kfvn8vcwc",
-            "handler": "1cnf-folder"
-        },        
-        {
-            "name": "Final Fantasy XV",
-            "package": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
-            "handler": "1c1f"
-        },
-        {
-            "name": "Fuga: Melodies of Steel 2",
-            "package": "CyberConnect2Co.Ltd.FugaMelodiesofSteel2_zpv0gf6t8hz5r",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "High on Life",
-            "package": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Hi-Fi RUSH",
-            "package": "BethesdaSoftworks.Hibiki_3275kfvn8vcwc",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Manor Lords",
-            "package": "HoodedHorse.ManorLords_znaey1dw2bdpr",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Mechwarrior 5 Clans",
-            "package": "PiranhaGamesInc.MechWarrior5Clans_skpx0jhaqqap2",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Remnant 2",
-            "package": "PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Solar Ash",
-            "package": "AnnapurnaInteractive.SolarAsh_c96c51jf6wkvm",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Yakuza 0",
-            "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
-            "handler": "1c1f"
-        },
-        {
-            "name": "Trials of Mana",
-            "package": "39EA002F.TOMDF_n746a19ndrrjg",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "The Alters",
-            "package": "4063811bitstudios.TheAlters_gwy9gn5q9j1y6",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        // 1cnf
-        // 1 container, n files
-        // One container contains all save files.
-        {
-            "name": "Chained Echoes",
-            "package": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
-            "handler": "1cnf"
-        },
-        {
-            "name": "Chorus",
-            "package": "DeepSilver.UnleashedGoF_hmv7qcest37me",
-            "handler": "1cnf",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Hades",
-            "package": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
-            "handler": "1cnf"
-        },
-        {
-            "name": "Hypnospace Outlaw",
-            "package": "NoMoreRobots.HypnospaceOutlaw_671zbmwb2bw9p",
-            "handler": "1cnf"
-        },
-        {
-            "name": "Just Cause 4",
-            "package": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
-            "handler": "1cnf"
-        },
-        {
-            "name": "Monster Train",
-            "package": "69C22BB6.MonsterTrain_8ekbzbj4dakee",
-            "handler": "1cnf-folder"
-        },
-        {
-            "name": "Octopath Traveler",
-            "package": "39EA002F.FrigateMS_n746a19ndrrjg",
-            "handler": "1cnf"
-        },
-        {
-            "name": "Remnant: From the Ashes",
-            "package": "PerfectWorldEntertainment.RemnantFromtheAshes_jrajkyc4tsa6w",
-            "handler": "1cnf",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        {
-            "name": "Sea of Stars",
-            "package": "SabotageStudio.SeaofStars_p3aneehax6csy",
-            "handler": "1cnf",
-            "handler_args": {
-                "suffix": ".sos"
-            }
-        },
-        {
-            "name": "Totally Accurate Battle Simulator",
-            "package": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
-            "handler": "1cnf"
-        },
-        // 1cnf-folder
-        // Each container represents one folder.
-        {
-            "name": "Ninja Gaiden Sigma",
-            "package": "946B6A6E.NINJAGAIDENSIGMA_dkffhzhmh6pmy",
-            "handler": "1cnf-folder"
-        },
-        {
-            "name": "Persona 5 Royal",
-            "package": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
-            "handler": "1cnf-folder"
-        },
-        {
-            "name": "Persona 5 Tactica",
-            "package": "SEGAofAmericaInc.s0cb6b3ael_s751p9cej88mt",
-            "handler": "1cnf-folder"
-        },
-        {
-            "name": "SpiderHeck",
-            "package": "tinyBuildGames.SpiderHeck_3sz1pp2ynv2xe",
-            "handler": "1cnf-folder"
-        },
-        {
-            "name": "Wo Long: Fallen Dynasty",
-            "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
-            "handler": "1cnf-folder"
-        },
-        // Yakuza / Like a Dragon games
-        // Saves contain icons and the file names may be wrong
-        {
-            "name": "Like a Dragon: Ishin!",
-            "package": "SEGAofAmericaInc.ProjectMacan_s751p9cej88mt",
-            "handler": "like-a-dragon",
-            "handler_args": {
-                "icon_format": "png"
-            }
-        },
-        {
-            "name": "Like a Dragon Gaiden: The Man Who Erased His Name",
-            "package": "SEGAofAmericaInc.l1b05f489e_s751p9cej88mt",
-            "handler": "like-a-dragon",
-            "handler_args": {
-                "icon_format": "dds"
-            }
-        },
-        {
-            "name": "Yakuza: Like a Dragon",
-            "package": "SEGAofAmericaInc.Yazawa_s751p9cej88mt",
-            "handler": "like-a-dragon",
-            "handler_args": {
-                "icon_format": "dds"
-            }
-        },
-        // Control
-        {
-            "name": "Control",
-            "package": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
-            "handler": "control"
-        },
-        // Starfield
-        {
-            "name": "Starfield",
-            "package": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc",
-            "handler": "starfield"
-        },
-        // Lies of P
-        {
-            "name": "Lies of P",
-            "package": "Neowiz.3616725F496B_r4z3116tdh636",
-            "handler": "lies-of-p"
-        },
-        // Palworld
-        {
-            "name": "Palworld",
-            "package": "PocketpairInc.Palworld_ad4psfrxyesvt",
-            "handler": "palworld"
-        },
-        // Forza Horizon 5
-        {
-            "name": "Forza Horizon 5",
-            "package": "Microsoft.624F8B84B80_8wekyb3d8bbwe",
-            "handler": "forza"
-        },
-        // Arcade Paradise
-        {
-            "name": "Arcade Paradise",
-            "package": "WiredProductions.ArcadeParadise_hxzk6evwjr6sy",
-            "handler": "arcade-paradise"
-        },
-        // State of Decay 2
-        {
-            "name": "State of Decay 2",
-            "package": "Microsoft.Dayton_8wekyb3d8bbwe",
-            "handler": "state-of-decay-2"
-        },
-        // Railway Empire 2
-        {
-            "name": "Railway Empire 2",
-            "package": "KalypsoMediaGroup.RailwayEmpire2Win_e60j8nnj33ga6",
-            "handler": "railway-empire-2"
-        },
-        // Coral Island
-        {
-            "name": "Coral Island",
-            "package": "HumbleBundle.CoralIsland_q2mcdwmzx4qja",
-            "handler": "coral-island"
-        },
-        // Cricket 24
-        {
-            "name": "Cricket 24",
-            "package": "BigbenInteractiveSA.Cricket24Win10_tqjv3vrxr8ppw",
-            "handler": "cricket-24"
-        },
-        // Oblivion Remastered
-        {
-            "name": "Oblivion Remastered",
-            "package": "BethesdaSoftworks.ProjectAltar_3275kfvn8vcwc",
-            "handler": "1c1f",
-            "handler_args": {
-                "suffix": ".sav"
-            }
-        },
-        // Clair Obscur: Expedition 33
-        {
-            "name": "Clair Obscur: Expedition 33",
-            "package": "KeplerInteractive.Expedition33_ymj30pw7xe604",
-            "handler": "coral-island"
-        },
-        // One Lonely Outpost
-        {
-            "name": "One Lonely Outpost",
-            "package": "FreedomGames.OneLonelyOutpostGame_0c9x75n11d8wg",
-            "handler": "one-lonely-outpost"
-        }
-    ]
+  "games": [
+    // 1c1f
+    // 1 container, 1 file.
+    // Each container contains only one file which name will be the name of the container.
+    {
+      "name": "Atomic Heart",
+      "package": "FocusHomeInteractiveSA.579645D26CFD_4hny5m903y3g0",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "The Callisto Protocol",
+      "package": "PUBGCorp.TheCallistoProtocolXB1_gsxfe54jwf950",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Celeste",
+      "package": "MattMakesGamesInc.Celeste_79daxvg0dq3v6",
+      "handler": "1c1f"
+    },
+    {
+      "name": "Doom Eternal",
+      "package": "BethesdaSoftworks.DOOMEternal-PC_3275kfvn8vcwc",
+      "handler": "1cnf-folder"
+    },
+    {
+      "name": "Final Fantasy XV",
+      "package": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",
+      "handler": "1c1f"
+    },
+    {
+      "name": "Fuga: Melodies of Steel 2",
+      "package": "CyberConnect2Co.Ltd.FugaMelodiesofSteel2_zpv0gf6t8hz5r",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "High on Life",
+      "package": "2637SquanchGamesInc.HighonLife_mh7dg3tfmz2cj",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Hi-Fi RUSH",
+      "package": "BethesdaSoftworks.Hibiki_3275kfvn8vcwc",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Manor Lords",
+      "package": "HoodedHorse.ManorLords_znaey1dw2bdpr",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Mechwarrior 5 Clans",
+      "package": "PiranhaGamesInc.MechWarrior5Clans_skpx0jhaqqap2",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Remnant 2",
+      "package": "PerfectWorldEntertainment.GFREMP2_jrajkyc4tsa6w",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Solar Ash",
+      "package": "AnnapurnaInteractive.SolarAsh_c96c51jf6wkvm",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Yakuza 0",
+      "package": "SEGAofAmericaInc.Yakuza0PC_s751p9cej88mt",
+      "handler": "1c1f"
+    },
+    {
+      "name": "Trials of Mana",
+      "package": "39EA002F.TOMDF_n746a19ndrrjg",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "The Alters",
+      "package": "4063811bitstudios.TheAlters_gwy9gn5q9j1y6",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    // 1cnf
+    // 1 container, n files
+    // One container contains all save files.
+    {
+      "name": "Chained Echoes",
+      "package": "DECK13.ChainedEchoesRelease_rn1dn9jh54zft",
+      "handler": "1cnf"
+    },
+    {
+      "name": "Chorus",
+      "package": "DeepSilver.UnleashedGoF_hmv7qcest37me",
+      "handler": "1cnf",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Hades",
+      "package": "SupergiantGamesLLC.Hades_q53c1yqmx7pha",
+      "handler": "1cnf"
+    },
+    {
+      "name": "Hypnospace Outlaw",
+      "package": "NoMoreRobots.HypnospaceOutlaw_671zbmwb2bw9p",
+      "handler": "1cnf"
+    },
+    {
+      "name": "Just Cause 4",
+      "package": "39C668CD.JustCause4-BaseGame_r7bfsmp40f67j",
+      "handler": "1cnf"
+    },
+    {
+      "name": "Monster Train",
+      "package": "69C22BB6.MonsterTrain_8ekbzbj4dakee",
+      "handler": "1cnf-folder"
+    },
+    {
+      "name": "Octopath Traveler",
+      "package": "39EA002F.FrigateMS_n746a19ndrrjg",
+      "handler": "1cnf"
+    },
+    {
+      "name": "Remnant: From the Ashes",
+      "package": "PerfectWorldEntertainment.RemnantFromtheAshes_jrajkyc4tsa6w",
+      "handler": "1cnf",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    {
+      "name": "Sea of Stars",
+      "package": "SabotageStudio.SeaofStars_p3aneehax6csy",
+      "handler": "1cnf",
+      "handler_args": {
+        "suffix": ".sos"
+      }
+    },
+    {
+      "name": "Totally Accurate Battle Simulator",
+      "package": "LandfallGames.TotallyAccurateBattleSimulator_r2vq7k2y0v9ct",
+      "handler": "1cnf"
+    },
+    // 1cnf-folder
+    // Each container represents one folder.
+    {
+      "name": "Dungeons of Hinterberg",
+      "package": "CurveDigital.DungeonsOfHinterberg_1ezqdnbhnc70m",
+      "handler": "1cnf-folder"
+    },
+    {
+      "name": "Ninja Gaiden Sigma",
+      "package": "946B6A6E.NINJAGAIDENSIGMA_dkffhzhmh6pmy",
+      "handler": "1cnf-folder"
+    },
+    {
+      "name": "Persona 5 Royal",
+      "package": "SEGAofAmericaInc.F0cb6b3aer_s751p9cej88mt",
+      "handler": "1cnf-folder"
+    },
+    {
+      "name": "Persona 5 Tactica",
+      "package": "SEGAofAmericaInc.s0cb6b3ael_s751p9cej88mt",
+      "handler": "1cnf-folder"
+    },
+    {
+      "name": "SpiderHeck",
+      "package": "tinyBuildGames.SpiderHeck_3sz1pp2ynv2xe",
+      "handler": "1cnf-folder"
+    },
+    {
+      "name": "Wo Long: Fallen Dynasty",
+      "package": "946B6A6E.WoLongFallenDynasty_dkffhzhmh6pmy",
+      "handler": "1cnf-folder"
+    },
+    // Yakuza / Like a Dragon games
+    // Saves contain icons and the file names may be wrong
+    {
+      "name": "Like a Dragon: Ishin!",
+      "package": "SEGAofAmericaInc.ProjectMacan_s751p9cej88mt",
+      "handler": "like-a-dragon",
+      "handler_args": {
+        "icon_format": "png"
+      }
+    },
+    {
+      "name": "Like a Dragon Gaiden: The Man Who Erased His Name",
+      "package": "SEGAofAmericaInc.l1b05f489e_s751p9cej88mt",
+      "handler": "like-a-dragon",
+      "handler_args": {
+        "icon_format": "dds"
+      }
+    },
+    {
+      "name": "Yakuza: Like a Dragon",
+      "package": "SEGAofAmericaInc.Yazawa_s751p9cej88mt",
+      "handler": "like-a-dragon",
+      "handler_args": {
+        "icon_format": "dds"
+      }
+    },
+    // Control
+    {
+      "name": "Control",
+      "package": "505GAMESS.P.A.ControlPCGP_tefn33qh9azfc",
+      "handler": "control"
+    },
+    // Starfield
+    {
+      "name": "Starfield",
+      "package": "BethesdaSoftworks.ProjectGold_3275kfvn8vcwc",
+      "handler": "starfield"
+    },
+    // Lies of P
+    {
+      "name": "Lies of P",
+      "package": "Neowiz.3616725F496B_r4z3116tdh636",
+      "handler": "lies-of-p"
+    },
+    // Palworld
+    {
+      "name": "Palworld",
+      "package": "PocketpairInc.Palworld_ad4psfrxyesvt",
+      "handler": "palworld"
+    },
+    // Forza Horizon 5
+    {
+      "name": "Forza Horizon 5",
+      "package": "Microsoft.624F8B84B80_8wekyb3d8bbwe",
+      "handler": "forza"
+    },
+    // Arcade Paradise
+    {
+      "name": "Arcade Paradise",
+      "package": "WiredProductions.ArcadeParadise_hxzk6evwjr6sy",
+      "handler": "arcade-paradise"
+    },
+    // State of Decay 2
+    {
+      "name": "State of Decay 2",
+      "package": "Microsoft.Dayton_8wekyb3d8bbwe",
+      "handler": "state-of-decay-2"
+    },
+    // Railway Empire 2
+    {
+      "name": "Railway Empire 2",
+      "package": "KalypsoMediaGroup.RailwayEmpire2Win_e60j8nnj33ga6",
+      "handler": "railway-empire-2"
+    },
+    // Coral Island
+    {
+      "name": "Coral Island",
+      "package": "HumbleBundle.CoralIsland_q2mcdwmzx4qja",
+      "handler": "coral-island"
+    },
+    // Cricket 24
+    {
+      "name": "Cricket 24",
+      "package": "BigbenInteractiveSA.Cricket24Win10_tqjv3vrxr8ppw",
+      "handler": "cricket-24"
+    },
+    // Oblivion Remastered
+    {
+      "name": "Oblivion Remastered",
+      "package": "BethesdaSoftworks.ProjectAltar_3275kfvn8vcwc",
+      "handler": "1c1f",
+      "handler_args": {
+        "suffix": ".sav"
+      }
+    },
+    // Clair Obscur: Expedition 33
+    {
+      "name": "Clair Obscur: Expedition 33",
+      "package": "KeplerInteractive.Expedition33_ymj30pw7xe604",
+      "handler": "coral-island"
+    },
+    // One Lonely Outpost
+    {
+      "name": "One Lonely Outpost",
+      "package": "FreedomGames.OneLonelyOutpostGame_0c9x75n11d8wg",
+      "handler": "one-lonely-outpost"
+    }
+  ]
 }
