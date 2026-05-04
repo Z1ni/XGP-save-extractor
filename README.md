@@ -28,6 +28,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Clair Obscur: Expedition 33 | ✅ | - |
 | Cricket 24 | ✅ | - |
 | Doom Eternal | ✅ | ? |
+| Dungeons of Hinterberg | ✅ | ? |
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ✅ | - |
 | Fuga: Melodies of Steel 2 | ❔ | ❔ |
