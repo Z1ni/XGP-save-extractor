@@ -22,6 +22,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | The Callisto Protocol | ✅ | - |
 | Celeste | ❔ | ❔ |
 | Chained Echoes | ❔ | ❔ |
+| Chants of sennaar  | ✅ | ❔ |
 | Chorus | ✅ | ❔ |
 | Control | ❔ | ✅ |
 | Coral Island | ✅ | - |
