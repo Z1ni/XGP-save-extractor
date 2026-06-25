@@ -306,6 +306,12 @@
             "name": "One Lonely Outpost",
             "package": "FreedomGames.OneLonelyOutpostGame_0c9x75n11d8wg",
             "handler": "one-lonely-outpost"
+        },
+        // Balatro
+        {
+            "name": "Balatro",
+            "package": "PlayStack.Balatro_3wcqaesafpzfy",
+            "handler": "balatro"
         }
     ]
 }

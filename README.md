@@ -19,6 +19,7 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 |-|-|-|
 | Arcade Paradise | ✅ | ✅ |
 | Atomic Heart | ✅ | - |
+| Balatro | ✅ | ❔ |
 | The Callisto Protocol | ✅ | - |
 | Celeste | ❔ | ❔ |
 | Chained Echoes | ❔ | ❔ |

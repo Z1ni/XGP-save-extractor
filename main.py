@@ -504,6 +504,17 @@ def get_save_paths(
 
             save_meta.append((fname, fpath))
 
+    elif handler_name == "balatro":
+        # Each container represents a folder, except "common" which maps to the save root
+        # (Steam version keeps settings.jkr directly in %AppData%\Balatro\).
+        for container in containers:
+            folder_name: str = container["name"]
+            for file in container["files"]:
+                fname = file["name"]
+                zip_fname = fname if folder_name == "common" else f"{folder_name}/{fname}"
+                fpath = file["path"]
+                save_meta.append((zip_fname, fpath))
+
     else:
         raise Exception('Unsupported XGP app "%s"' % store_pkg_name)
 
