@@ -28,7 +28,12 @@
             "name": "Doom Eternal",
             "package": "BethesdaSoftworks.DOOMEternal-PC_3275kfvn8vcwc",
             "handler": "1cnf-folder"
-        },        
+        },
+        {
+            "name": "Doom: The Dark Ages",
+            "package": "BethesdaSoftworks.ProjectTitan_3275kfvn8vcwc",
+            "handler": "1cnf-folder"
+        },
         {
             "name": "Final Fantasy XV",
             "package": "39EA002F.FINALFANTASYXVforPC_n746a19ndrrjg",

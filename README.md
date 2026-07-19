@@ -27,7 +27,8 @@ Legend: ✅ Confirmed working, ❔ Unconfirmed, - Not available in the store
 | Coral Island | ✅ | - |
 | Clair Obscur: Expedition 33 | ✅ | - |
 | Cricket 24 | ✅ | - |
-| Doom Eternal | ✅ | ? |
+| Doom Eternal | ✅ | ❔ |
+| Doom: The Dark Ages | ✅ | ❔ |
 | Final Fantasy XV | ✅ | - |
 | Forza Horizon 5 | ✅ | - |
 | Fuga: Melodies of Steel 2 | ❔ | ❔ |
