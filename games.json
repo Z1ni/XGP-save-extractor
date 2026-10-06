@@ -306,6 +306,15 @@
             "name": "One Lonely Outpost",
             "package": "FreedomGames.OneLonelyOutpostGame_0c9x75n11d8wg",
             "handler": "one-lonely-outpost"
+        },
+        // Sifu
+        {
+            "name": "Sifu",
+            "package": "SLOCLAP.Sifu_cse8z5zpmcvkt",
+            "handler": "1c1f",
+            "handler_args": {
+            "suffix": ".sav"
+            }
         }
     ]
 }
